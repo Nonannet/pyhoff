@@ -25,7 +25,7 @@ class ModBusBK9050(ModbusClient):
                 default state. A value of 0 deactivates the watchdog.
         """
         
-        ModbusClient.__init__(self, host, port, auto_open=True, debug=debug, timeout=timeout, watchdog=watchdog)
+        ModbusClient.__init__(self, host, port, auto_open=True, debug=debug, timeout=timeout)
         self.bus_terminals = list()
         self.next_output_bit_offset = 0
         self.next_input_bit_offset = 0
@@ -36,7 +36,7 @@ class ModBusBK9050(ModbusClient):
         #config watchdog on page 58
         
         #set time-out/deactivate watchdog timer (deactivate: timeout = 0):
-        self.write_single_register(0x1120, timeout * 1000) #ms
+        self.write_single_register(0x1120, watchdog * 1000) #ms
         
         #reset watchdog timer:
         self.write_single_register(0x1121, 0xBECF)
