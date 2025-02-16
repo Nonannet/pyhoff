@@ -1,8 +1,9 @@
 # pyhoff
 
-This python code allows to read and write the most common
-Beckhoff bus terminals ("Busklemmen") using the bus coupler
-BK9050 ("Busskoppler BK9050") over Ethernet TCP/IP.
+The pyhoff package allows to read and write the most common
+Beckhoff and WAGO bus terminals ("Busklemmen") using the bus
+coupler ("Busskoppler") BK9000, BK9050, BK9100 or WAGO 750_352
+over Ethernet TCP/IP based on ModBus TCP.
 
 It depends on the package pyModbusTCP. This can be installed with:
 
