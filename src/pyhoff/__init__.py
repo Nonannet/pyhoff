@@ -38,14 +38,14 @@ class DigitalInputTerminal(BusTerminal):
             channel: The channel number (start counting from 1) to read from.
 
         Returns:
-            The input value of the specified channel.
+            The input value of the specified channel or None if the read operation failed.
 
         Raises:
             Exception: If the channel number is out of range.
         """
         if channel < 1 or channel > self.parameters['input_bit_width']:
             raise Exception("address out of range")
-        return self.bus_coupler.read_discrete_input(self._input_bit_offset + channel - 1)
+        return self.bus_coupler._read_discrete_input(self._input_bit_offset + channel - 1)
 
 
 class DigitalOutputTerminal(BusTerminal):
@@ -78,14 +78,14 @@ class DigitalOutputTerminal(BusTerminal):
             channel: The channel number (start counting from 1) to read from.
 
         Returns:
-            The coil value of the specified channel.
+            The coil value of the specified channel or None if the read operation failed.
 
         Raises:
             Exception: If the channel number is out of range.
         """
         if channel < 1 or channel > self.parameters['output_bit_width']:
             raise Exception("address out of range")
-        return self.bus_coupler.read_coil(self._output_bit_offset + channel - 1)
+        return self.bus_coupler._read_coil(self._output_bit_offset + channel - 1)
 
 
 class AnalogInputTerminal(BusTerminal):
@@ -210,7 +210,7 @@ class BusCoupler():
     """BusCoupler: Busskoppler ModBus TCP"""
 
     def __init__(self, host: str, port: int = 502, bus_terminals: list[Type[BusTerminal]] = [],
-                 timeout: int = 5, watchdog: float = 0, debug: bool = False):
+                 timeout: float = 5, watchdog: float = 0, debug: bool = False):
         """
         Constructs a Bus Coupler connected over ModBus TCP.
 
@@ -237,7 +237,7 @@ class BusCoupler():
     def _init_hardware(self, watchdog: float):
         pass
 
-    def read_discrete_input(self, address: int) -> bool | None:
+    def _read_discrete_input(self, address: int) -> bool | None:
         """
         Read a discrete input from the given register address.
 
@@ -253,7 +253,7 @@ class BusCoupler():
         else:
             return None
 
-    def read_coil(self, address: int) -> bool | None:
+    def _read_coil(self, address: int) -> bool | None:
         """
         Read a coil from the given register address.
 
