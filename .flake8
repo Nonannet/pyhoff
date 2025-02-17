@@ -13,6 +13,7 @@ exclude =
     build,
     dist,
     .conda
+    .venv
 
 # Enable specific plugins or options
 # Example: Enabling flake8-docstrings

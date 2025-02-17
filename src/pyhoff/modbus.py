@@ -46,18 +46,36 @@ def _from_words(values: list[int]) -> bytes:
 
 class SimpleModbusClient:
     """
-    Modbus TCP client
+    A simple Modbus TCP client
+
+    Args:
+        host: hostname or IP address
+        port: server port
+        unit_id: ModBus id
+        timeout: socket timeout in seconds
+        debug: if True prints out transmitted and received bytes in hex
+
+    Attributes:
+        host: hostname or IP address
+        port: server port
+        unit_id: ModBus id
+        timeout: socket timeout in seconds
+        last_error: contains last error message or empty string if no error occurred
+        debug: if True prints out transmitted and received bytes in hex
+
+    Example:
+        >>> client = SimpleModbusClient('localhost', port = 502, unit_id = 1)
+        >>> print(client.read_coils(0, 10))
+        >>> print(client.read_discrete_inputs(0, 10))
+        >>> print(client.read_holding_registers(0, 10))
+        >>> print(client.read_input_registers(0, 10))
+        >>> print(client.write_single_coil(0, True))
+        >>> print(client.write_single_register(0, 1234))
+        >>> print(client.write_multiple_coils(0, [True, False, True]))
+        >>> print(client.write_multiple_registers(0, [1234, 5678]))
+        >>> client.close()
     """
     def __init__(self, host: str, port: int = 502, unit_id: int = 1, timeout: float = 5, debug: bool = False):
-        """
-        Constructs a Modbus client
-
-        Args:
-            host: hostname or IPv4/IPv6 address server address
-            port: server port
-            unit_id: ModBus id
-            timeout: socket timeout in seconds
-        """
         assert 0 <= unit_id < 256
 
         self.host = host
@@ -272,6 +290,38 @@ class SimpleModbusClient:
 
         return data == tx_data
 
+    def read_discrete_input(self, address: int) -> bool | None:
+        """
+        Read a discrete input from the given register address.
+
+        Args:
+            address: The register address to read from.
+
+        Returns:
+            The value of the discrete input.
+        """
+        value = self.read_discrete_inputs(address)
+        if value:
+            return value[0]
+        else:
+            return None
+
+    def read_coil(self, address: int) -> bool | None:
+        """
+        Read a coil from the given register address.
+
+        Args:
+            address: The register address to read from.
+
+        Returns:
+            The value of the coil.
+        """
+        value = self.read_coils(address)
+        if value:
+            return value[0]
+        else:
+            return None
+
     def write_single_register(self, register_address: int, value: int) -> bool:
         """
         ModBus function for writing a single register (0x06)
@@ -400,7 +450,7 @@ class SimpleModbusClient:
                 try:
                     self._socket.sendall(data)
                     if self.debug:
-                        print(f'-> Send:   {' '.join(hex(b) for b in data)}')
+                        print(f'-> Send:     {' '.join(hex(b) for b in data)}')
                     return len(data)
                 except socket.error:
                     self.last_error = 'sending data failed'

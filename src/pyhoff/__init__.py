@@ -5,6 +5,17 @@ from typing import Type, Any
 class BusTerminal():
     """
     Base class for all bus terminals.
+
+    Args:
+        bus_coupler: The bus coupler to which this terminal is connected.
+        output_bit_offset: The offset of the output bits.
+        input_bit_offset: The offset of the input bits.
+        output_word_offset: The offset of the output words.
+        input_word_offset: The offset of the input words.
+
+    Attributes:
+        bus_coupler: The bus coupler to which this terminal is connected.
+        parameters: The parameters of the terminal.
     """
     parameters: dict[str, int] = {}
 
@@ -13,12 +24,7 @@ class BusTerminal():
                  input_bit_offset: int,
                  output_word_offset: int,
                  input_word_offset: int):
-        """
-        Initialize a BusTerminal.
 
-        Args:
-            bus_coupler: The bus coupler to which this terminal is connected.
-        """
         self._output_bit_offset = output_bit_offset
         self._input_bit_offset = input_bit_offset
         self._output_word_offset = output_word_offset
@@ -28,7 +34,7 @@ class BusTerminal():
 
 class DigitalInputTerminal(BusTerminal):
     """
-    Represents a digital input terminal.
+    Base class for digital input terminals.
     """
     def read_input(self, channel: int) -> bool | None:
         """
@@ -45,12 +51,12 @@ class DigitalInputTerminal(BusTerminal):
         """
         if channel < 1 or channel > self.parameters['input_bit_width']:
             raise Exception("address out of range")
-        return self.bus_coupler._read_discrete_input(self._input_bit_offset + channel - 1)
+        return self.bus_coupler.modbus.read_discrete_input(self._input_bit_offset + channel - 1)
 
 
 class DigitalOutputTerminal(BusTerminal):
     """
-    Represents a digital output terminal.
+    Base class for digital output terminals.
     """
     def write_coil(self, channel: int, value: bool) -> bool:
         """
@@ -85,12 +91,12 @@ class DigitalOutputTerminal(BusTerminal):
         """
         if channel < 1 or channel > self.parameters['output_bit_width']:
             raise Exception("address out of range")
-        return self.bus_coupler._read_coil(self._output_bit_offset + channel - 1)
+        return self.bus_coupler.modbus.read_coil(self._output_bit_offset + channel - 1)
 
 
 class AnalogInputTerminal(BusTerminal):
     """
-    Represents an analog input terminal.
+    Base class for analog input terminals.
     """
     def read_words(self, word_offset: int, word_count: int) -> list[int] | None:
         """
@@ -141,7 +147,7 @@ class AnalogInputTerminal(BusTerminal):
 
 class AnalogOutputTerminal(BusTerminal):
     """
-    Represents an analog output terminal.
+    Base class for analog output terminals.
     """
     def read_words(self, word_offset: int, word_count: int) -> list[int] | None:
         """
@@ -207,28 +213,40 @@ class AnalogOutputTerminal(BusTerminal):
 
 
 class BusCoupler():
-    """BusCoupler: Busskoppler ModBus TCP"""
+    """
+    Base class for ModBus TCP bus coupler
+
+    Args:
+        host: ip or hostname of the bus coupler
+        port: port of the modbus host
+        debug: outputs modbus debug information
+        timeout: timeout for waiting for the device response
+        watchdog: time in seconds after the device sets all outputs to
+            default state. A value of 0 deactivates the watchdog.
+        debug: If True, debug information is printed.
+
+    Attributes:
+        bus_terminals: A list of bus terminal classes according to the
+            connected terminals.
+        modbus: The underlying modbus client used for the connection.
+
+    Examples:
+        >>> from pyhoff.devices import *
+        >>> bk = BK9000('192.168.0.23', bus_terminals=[KL3202, KL9010])
+        >>> t1 = bk.terminals[0].read_temperature(1)
+        >>> t2 = bk.terminals[0].read_temperature(2)
+        >>> print(f"Temperature ch1: {t1:.1f} °C, Temperature ch2: {t2:.1f} °C")
+        Temperature ch1: 23.2 °C, Temperature ch2: 22.1 °C
+    """
 
     def __init__(self, host: str, port: int = 502, bus_terminals: list[Type[BusTerminal]] = [],
                  timeout: float = 5, watchdog: float = 0, debug: bool = False):
-        """
-        Constructs a Bus Coupler connected over ModBus TCP.
-
-        Args:
-            host: ip or hostname of the BK9050
-            port: port of the modbus host
-            debug: outputs modbus debug information
-            timeout: timeout for waiting for the device response
-            watchdog: time in seconds after the device sets all outputs to
-                default state. A value of 0 deactivates the watchdog.
-            debug: If True, debug information is printed.
-        """
 
         self.bus_terminals: list[Any] = list()
-        self.next_output_bit_offset = 0
-        self.next_input_bit_offset = 0
-        self.next_output_word_offset = 0
-        self.next_input_word_offset = 0
+        self._next_output_bit_offset = 0
+        self._next_input_bit_offset = 0
+        self._next_output_word_offset = 0
+        self._next_input_word_offset = 0
         self.modbus = SimpleModbusClient(host, port, timeout=timeout, debug=debug)
 
         self.add_bus_terminals(bus_terminals)
@@ -236,38 +254,6 @@ class BusCoupler():
 
     def _init_hardware(self, watchdog: float):
         pass
-
-    def _read_discrete_input(self, address: int) -> bool | None:
-        """
-        Read a discrete input from the given register address.
-
-        Args:
-            address: The register address to read from.
-
-        Returns:
-            The value of the discrete input.
-        """
-        value = self.modbus.read_discrete_inputs(address)
-        if value:
-            return value[0]
-        else:
-            return None
-
-    def _read_coil(self, address: int) -> bool | None:
-        """
-        Read a coil from the given register address.
-
-        Args:
-            address: The register address to read from.
-
-        Returns:
-            The value of the coil.
-        """
-        value = self.modbus.read_coils(address)
-        if value:
-            return value[0]
-        else:
-            return None
 
     def add_bus_terminals(self, bus_terminals: list[Type[BusTerminal]]) -> list[Any]:
         """
@@ -282,15 +268,15 @@ class BusCoupler():
         for terminal_class in bus_terminals:
             assert issubclass(terminal_class, BusTerminal), f'{terminal_class} is not a bus terminal'
             new_terminal = terminal_class(self,
-                                          self.next_output_bit_offset,
-                                          self.next_input_bit_offset,
-                                          self.next_output_word_offset,
-                                          self.next_input_word_offset)
+                                          self._next_output_bit_offset,
+                                          self._next_input_bit_offset,
+                                          self._next_output_word_offset,
+                                          self._next_input_word_offset)
 
-            self.next_output_bit_offset += terminal_class.parameters.get('output_bit_width', 0)
-            self.next_input_bit_offset += terminal_class.parameters.get('input_bit_width', 0)
-            self.next_output_word_offset += terminal_class.parameters.get('output_word_width', 0)
-            self.next_input_word_offset += terminal_class.parameters.get('input_word_width', 0)
+            self._next_output_bit_offset += terminal_class.parameters.get('output_bit_width', 0)
+            self._next_input_bit_offset += terminal_class.parameters.get('input_bit_width', 0)
+            self._next_output_word_offset += terminal_class.parameters.get('output_word_width', 0)
+            self._next_input_word_offset += terminal_class.parameters.get('input_word_width', 0)
 
             self.bus_terminals.append(new_terminal)
 

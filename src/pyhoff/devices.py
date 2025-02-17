@@ -5,7 +5,7 @@ from . import BusTerminal, BusCoupler
 
 class BK9000(BusCoupler):
     """
-    BK9000: Busskoppler ModBus TCP
+    BK9000 ModBus TCP bus coupler
     """
     def _init_hardware(self, watchdog: float):
         # https://download.beckhoff.com/download/document/io/bus-terminals/bk9000_bk9050_bk9100de.pdf
@@ -24,21 +24,21 @@ class BK9000(BusCoupler):
 
 class BK9050(BK9000):
     """
-    BK9050: Busskoppler ModBus TCP
+    BK9050 ModBus TCP bus coupler
     """
     pass
 
 
 class BK9100(BK9000):
     """
-    BK9100: Busskoppler ModBus TCP
+    BK9100 ModBus TCP bus coupler
     """
     pass
 
 
 class WAGO750_352(BusCoupler):
     """
-    Wago 750-352: Busskoppler ModBus TCP
+    Wago 750-352 ModBus TCP bus coupler
     """
     def _init_hardware(self, watchdog: float):
         # deactivate/reset watchdog timer:
@@ -165,7 +165,9 @@ class KL1512(AnalogInputTerminal):
     # Input: 4 x 16 Bit Daten (optional 4x 8 Bit Control/Status)
     parameters = {'input_word_width': 4, 'output_word_width': 4}
 
-    _last_counter_values = [0, 0]
+    def __init__(self, bus_coupler: BusCoupler, output_bit_offset: int, input_bit_offset: int, output_word_offset: int, input_word_offset: int):
+        super().__init__(bus_coupler, output_bit_offset, input_bit_offset, output_word_offset, input_word_offset)
+        self._last_counter_values = [self.read_word(1 * 2 - 1), self.read_word(2 * 2 - 1)]
 
     def read_counter(self, channel: int) -> int:
         """
@@ -190,6 +192,7 @@ class KL1512(AnalogInputTerminal):
         Returns:
             The counter value.
         """
+        # TODO: handel overflow
         new_count = self.read_word(channel * 2 - 1)
         return new_count - self._last_counter_values[channel - 1]
 
@@ -380,7 +383,7 @@ class KL9188(BusTerminal):
 
 class WAGO_750_600(BusTerminal):
     """
-    End nodule, no I/O function
+    End terminal, no I/O function
     """
     pass
 

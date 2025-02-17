@@ -1,7 +1,7 @@
 import inspect
-import src.pyhoff as pyhoff
-import src.pyhoff.devices as devices
-from src.pyhoff.devices import DigitalInputTerminal, DigitalOutputTerminal, AnalogInputTerminal, AnalogOutputTerminal
+import pyhoff as pyhoff
+import pyhoff.devices as devices
+from pyhoff.devices import DigitalInputTerminal, DigitalOutputTerminal, AnalogInputTerminal, AnalogOutputTerminal
 
 
 def test_terminal_plausib():
