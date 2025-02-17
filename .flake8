@@ -13,12 +13,7 @@ exclude =
     build,
     dist,
     .conda
-    test.py
 
 # Enable specific plugins or options
 # Example: Enabling flake8-docstrings
 select = C,E,F,W,D
-
-# Specify custom error codes to ignore or enable
-per-file-ignores =
-    tests/*: D
