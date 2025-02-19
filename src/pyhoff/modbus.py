@@ -425,8 +425,13 @@ class SimpleModbusClient:
         buffer = bytes()
         while len(buffer) < number_of_bytes:
             try:
-                buffer += self._socket.recv(number_of_bytes - len(buffer))
+                tx_data = self._socket.recv(number_of_bytes - len(buffer))
             except socket.error:
+                return bytes()
+
+            if tx_data:
+                buffer += tx_data
+            else:
                 return bytes()
 
         if self.debug:
@@ -512,6 +517,8 @@ class SimpleModbusClient:
 
         if data[0] > 0x80:
             self.last_error = f'return error: {_modbus_exceptions.get(data[1], '')} ({data[1]})'
+            if self.debug:
+                print(self.last_error)
             return bytes()
 
         return data[1:]
