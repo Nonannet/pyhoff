@@ -9,7 +9,7 @@ over Ethernet TCP/IP based on ModBus TCP.
 ### Key Features
 - Supports a wide range of Beckhoff and WAGO analog and digital bus
   terminals.
-- Very light weight: no dependencies; compact code base
+- Very lightweight: no dependencies; compact code base
 - Easy to extend
 - Using standardized ModBus TCP.
 - Provides high-level abstractions for reading and writing data
