@@ -9,6 +9,10 @@ cd pyhoff
 python -m venv ./.venv
 source ./.venv/bin/activate  # On Windows use `.\.venv\Scripts\activate`
 
+# Update version number in
+# - pyproject.toml
+# - CITATION.cff
+
 # Check code:
 pip install -r requirements-dev.txt
 flake8
