@@ -19,7 +19,11 @@ class BK9000(BusCoupler):
         self.modbus.write_single_register(0x1121, 0xAFFE)
 
         # set process image offset
-        self.next_output_word_offset = 0x0800
+        self._next_output_word_offset = 0x0800
+
+        # set channel placement for terminal mapping
+        self._channel_spacing = 2
+        self._channel_offset = 1
 
 
 class BK9050(BK9000):
@@ -36,7 +40,7 @@ class BK9100(BK9000):
     pass
 
 
-class WAGO750_352(BusCoupler):
+class WAGO_750_352(BusCoupler):
     """
     Wago 750-352 ModBus TCP bus coupler
     """
@@ -53,7 +57,11 @@ class WAGO750_352(BusCoupler):
             self.modbus.write_single_register(0x1001, 0xFFFF)
 
         # set process image offset
-        self.next_output_word_offset = 0x0000
+        self._next_output_word_offset = 0x0000
+        self._next_output_bit_offset = 512
+
+        # set separated input output mapping
+        self._mixed_mapping = False
 
 
 class DigitalInputTerminal4Bit(DigitalInputTerminal):
@@ -160,14 +168,14 @@ class WAGO_750_530(DigitalOutputTerminal8Bit):
 
 class KL1512(AnalogInputTerminal):
     """
-    KL1512: 2x digital input, counter, 24 V DC, 1 kHz
+    KL1512: 2x 16 bit counter, 24 V DC, 1 kHz
     """
-    # Input: 4 x 16 Bit Daten (optional 4x 8 Bit Control/Status)
-    parameters = {'input_word_width': 4, 'output_word_width': 4}
+    # Input: 2 x 16 Bit Daten (optional 4x 8 Bit Control/Status)
+    parameters = {'input_word_width': 2}
 
-    def __init__(self, bus_coupler: BusCoupler, output_bit_offset: int, input_bit_offset: int, output_word_offset: int, input_word_offset: int):
-        super().__init__(bus_coupler, output_bit_offset, input_bit_offset, output_word_offset, input_word_offset)
-        self._last_counter_values = [self.read_word(1 * 2 - 1), self.read_word(2 * 2 - 1)]
+    def __init__(self, bus_coupler: BusCoupler, o_b_addr: list[int], i_b_addr: list[int], o_w_addr: list[int], i_w_addr: list[int], mixed_mapping: bool):
+        super().__init__(bus_coupler, o_b_addr, i_b_addr, o_w_addr, i_w_addr, mixed_mapping)
+        self._last_counter_values = [self.read_channel_word(1), self.read_channel_word(2)]
 
     def read_counter(self, channel: int) -> int:
         """
@@ -180,7 +188,7 @@ class KL1512(AnalogInputTerminal):
             The counter value.
         """
 
-        return self.read_word(channel * 2 - 1)
+        return self.read_channel_word(channel)
 
     def read_delta(self, channel: int) -> int:
         """
@@ -192,9 +200,13 @@ class KL1512(AnalogInputTerminal):
         Returns:
             The counter value.
         """
-        # TODO: handel overflow
-        new_count = self.read_word(channel * 2 - 1)
-        return new_count - self._last_counter_values[channel - 1]
+        new_count = self.read_channel_word(channel)
+        delta = new_count - self._last_counter_values[channel - 1]
+        if delta > 0x8000:
+            delta = delta - 0x10000
+        elif delta < -0x8000:
+            delta = delta + 0x10000
+        return delta
 
 
 class KL3054(AnalogInputTerminal):
@@ -202,7 +214,7 @@ class KL3054(AnalogInputTerminal):
     KL3054: 4x analog input 4...20 mA 12 Bit single-ended
     """
     # Input: 4 x 16 Bit Daten (optional 4x 8 Bit Control/Status)
-    parameters = {'input_word_width': 8, 'output_word_width': 8}
+    parameters = {'input_word_width': 4}
 
     def read_current(self, channel: int) -> float:
         """
@@ -214,7 +226,7 @@ class KL3054(AnalogInputTerminal):
         Returns:
             The current value.
         """
-        return self.read_normalized(channel * 2 - 1) * 16.0 + 4.0
+        return self.read_normalized(channel) * 16.0 + 4.0
 
 
 class KL3042(AnalogInputTerminal):
@@ -222,7 +234,7 @@ class KL3042(AnalogInputTerminal):
     KL3042: 2x analog input 0...20 mA 12 Bit single-ended
     """
     # Input: 2 x 16 Bit Daten (optional 2x 8 Bit Control/Status)
-    parameters = {'input_word_width': 4, 'output_word_width': 4}
+    parameters = {'input_word_width': 2}
 
     def read_current(self, channel: int) -> float:
         """
@@ -234,7 +246,7 @@ class KL3042(AnalogInputTerminal):
         Returns:
             The current value.
         """
-        return self.read_normalized(channel * 2 - 1) * 20.0
+        return self.read_normalized(channel) * 20.0
 
 
 class KL3202(AnalogInputTerminal):
@@ -242,7 +254,7 @@ class KL3202(AnalogInputTerminal):
     KL3202: 2x analog input PT100 16 Bit 3-wire
     """
     # Input: 2 x 16 Bit Daten (2 x 8 Bit Control/Status optional)
-    parameters = {'input_word_width': 4, 'output_word_width': 4}
+    parameters = {'input_word_width': 2}
 
     def read_temperature(self, channel: int) -> float:
         """
@@ -254,7 +266,7 @@ class KL3202(AnalogInputTerminal):
         Returns:
             The temperature value in °C.
         """
-        val = self.read_word(channel * 2 - 1)
+        val = self.read_channel_word(channel)
         if val > 0x7FFF:
             return (val - 0x10000) / 10.0
         else:
@@ -267,7 +279,7 @@ class KL3214(AnalogInputTerminal):
     """
     # inp: 4 x 16 Bit Daten, 4 x 8 Bit Status (optional)
     # out: 4 x 8 Bit Control (optional)
-    parameters = {'input_word_width': 8, 'output_word_width': 8}
+    parameters = {'input_word_width': 4}
 
     def read_temperature(self, channel: int) -> float:
         """
@@ -279,7 +291,7 @@ class KL3214(AnalogInputTerminal):
         Returns:
             The temperature value.
         """
-        val = self.read_word(channel * 2 - 1)
+        val = self.read_channel_word(channel)
         if val > 0x7FFF:
             return (val - 0x10000) / 10.0
         else:
@@ -291,7 +303,7 @@ class KL4002(AnalogOutputTerminal):
     KL4002: 2x analog output 0...10 V 12 Bit differentiell
     """
     # Output: 2 x 16 Bit Daten (optional 2 x 8 Bit Control/Status)
-    parameters = {'input_word_width': 4, 'output_word_width': 4}
+    parameters = {'output_word_width': 2}
 
     def set_voltage(self, channel: int, value: float):
         """
@@ -309,7 +321,7 @@ class KL4132(AnalogOutputTerminal):
     KL4002: 2x analog output ±10 V 16 bit differential
     """
     # Output: 2 x 16 Bit Daten (optional 2 x 8 Bit Control/Status)
-    parameters = {'input_word_width': 4, 'output_word_width': 4}
+    parameters = {'output_word_width': 2}
 
     def set_normalized(self, channel: int, value: float):
         """
@@ -320,9 +332,9 @@ class KL4132(AnalogOutputTerminal):
             value: The normalized value to set.
         """
         if value >= 0:
-            self.write_word(channel - 1, int(value * 0x7FFF))
+            self.write_channel_word(channel, int(value * 0x7FFF))
         else:
-            self.write_word(channel - 1, int(0x10000 + value * 0x7FFF))
+            self.write_channel_word(channel, int(0x10000 + value * 0x7FFF))
 
     def set_voltage(self, channel: int, value: float):
         """
@@ -340,7 +352,7 @@ class KL4004(AnalogOutputTerminal):
     KL4004: 4x analog output 0...10 V 12 Bit differentiell
     """
     # Output: 4 x 16 Bit Daten (optional 4 x 8 Bit Control/Status)
-    parameters = {'input_word_width': 8, 'output_word_width': 8}
+    parameters = {'output_word_width': 4}
 
     def set_voltage(self, channel: int, value: float):
         """

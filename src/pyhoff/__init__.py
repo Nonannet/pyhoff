@@ -1,5 +1,5 @@
 from .modbus import SimpleModbusClient
-from typing import Type, Any
+from typing import Type
 
 
 class BusTerminal():
@@ -8,10 +8,10 @@ class BusTerminal():
 
     Args:
         bus_coupler: The bus coupler to which this terminal is connected.
-        output_bit_offset: The offset of the output bits.
-        input_bit_offset: The offset of the input bits.
-        output_word_offset: The offset of the output words.
-        input_word_offset: The offset of the input words.
+        output_bit_addresses: List of addresses of the output bits.
+        input_bit_addresses: List of addresses of input bits.
+        output_word_addresses: List of addresses of output words.
+        input_word_addresses: List of addresses of input words.
 
     Attributes:
         bus_coupler: The bus coupler to which this terminal is connected.
@@ -20,16 +20,18 @@ class BusTerminal():
     parameters: dict[str, int] = {}
 
     def __init__(self, bus_coupler: 'BusCoupler',
-                 output_bit_offset: int,
-                 input_bit_offset: int,
-                 output_word_offset: int,
-                 input_word_offset: int):
+                 output_bit_addresses: list[int],
+                 input_bit_addresses: list[int],
+                 output_word_addresses: list[int],
+                 input_word_addresses: list[int],
+                 mixed_mapping: bool):
 
-        self._output_bit_offset = output_bit_offset
-        self._input_bit_offset = input_bit_offset
-        self._output_word_offset = output_word_offset
-        self._input_word_offset = input_word_offset
         self.bus_coupler = bus_coupler
+        self._output_bit_addresses = output_bit_addresses
+        self._input_bit_addresses = input_bit_addresses
+        self._output_word_addresses = output_word_addresses
+        self._input_word_addresses = input_word_addresses
+        self._mixed_mapping = mixed_mapping
 
 
 class DigitalInputTerminal(BusTerminal):
@@ -51,7 +53,7 @@ class DigitalInputTerminal(BusTerminal):
         """
         if channel < 1 or channel > self.parameters['input_bit_width']:
             raise Exception("address out of range")
-        return self.bus_coupler.modbus.read_discrete_input(self._input_bit_offset + channel - 1)
+        return self.bus_coupler.modbus.read_discrete_input(self._input_bit_addresses[channel - 1])
 
 
 class DigitalOutputTerminal(BusTerminal):
@@ -74,7 +76,7 @@ class DigitalOutputTerminal(BusTerminal):
         """
         if channel < 1 or channel > self.parameters['output_bit_width']:
             raise Exception("address out of range")
-        return self.bus_coupler.modbus.write_single_coil(self._output_bit_offset + channel - 1, value)
+        return self.bus_coupler.modbus.write_single_coil(self._output_bit_addresses[channel - 1], value)
 
     def read_coil(self, channel: int) -> bool | None:
         """
@@ -91,46 +93,32 @@ class DigitalOutputTerminal(BusTerminal):
         """
         if channel < 1 or channel > self.parameters['output_bit_width']:
             raise Exception("address out of range")
-        return self.bus_coupler.modbus.read_coil(self._output_bit_offset + channel - 1)
+        return self.bus_coupler.modbus.read_coil(self._output_bit_addresses[channel - 1])
 
 
 class AnalogInputTerminal(BusTerminal):
     """
     Base class for analog input terminals.
     """
-    def read_words(self, word_offset: int, word_count: int) -> list[int] | None:
-        """
-        Read a list of words from the terminal.
-
-        Args:
-            word_offset: The starting word offset (0 based index).
-            word_count: The number of words to read.
-
-        Returns:
-            The read words.
-
-        Raises:
-            Exception: If the word offset or count is out of range.
-        """
-        if word_offset < 0 or word_offset + word_count > self.parameters['input_word_width']:
-            raise Exception("address out of range")
-        return self.bus_coupler.modbus.read_input_registers(self._input_word_offset + word_offset, word_count)
-
-    def read_word(self, word_offset: int) -> int:
+    def read_channel_word(self, channel: int, error_value: int = -99999) -> int:
         """
         Read a single word from the terminal.
 
         Args:
-            word_offset: The word offset (0 based index) to read from.
+            channel: The channel number (1 based index) to read from.
 
         Returns:
             The read word value.
+
+        Raises:
+            Exception: If the word offset or count is out of range.
         """
-        val = self.read_words(word_offset, 1)
-        if val:
-            return val[0]
-        else:
-            return -999
+        assert 1 <= channel <= self.parameters['input_word_width'], \
+            f"channel out of range, must be between {1} and {self.parameters['input_word_width']}"
+
+        value = self.bus_coupler.modbus.read_input_registers(self._input_word_addresses[channel - 1], 1)
+
+        return value[0] if value else error_value
 
     def read_normalized(self, channel: int) -> float:
         """
@@ -142,64 +130,51 @@ class AnalogInputTerminal(BusTerminal):
         Returns:
             The normalized value.
         """
-        return self.read_word(channel * 2 - 1) / 0x7FFF
+        return self.read_channel_word(channel) / 0x7FFF
 
 
 class AnalogOutputTerminal(BusTerminal):
     """
     Base class for analog output terminals.
     """
-    def read_words(self, word_offset: int, word_count: int) -> list[int] | None:
-        """
-        Read a list of words from the terminal.
-
-        Args:
-            word_offset: The starting word offset (0 based index).
-            word_count: The number of words to read.
-
-        Returns:
-            The read words.
-
-        Raises:
-            Exception: If the word offset or count is out of range.
-        """
-        if word_offset < 0 or word_offset + word_count > self.parameters['output_word_width']:
-            raise Exception("address out of range")
-        return self.bus_coupler.modbus.read_holding_registers(self._output_word_offset + word_offset, word_count)
-
-    def read_word(self, word_offset: int) -> int:
+    def read_channel_word(self, channel: int, error_value: int = -99999) -> int:
         """
         Read a single word from the terminal.
 
         Args:
-            word_offset: The word offset (0 based index) to read from.
+            channel: The channel number (1 based index) to read from.
 
         Returns:
             The read word value.
-        """
-        val = self.read_words(word_offset, 1)
-        if val:
-            return val[0]
-        else:
-            return -999
 
-    def write_word(self, word_offset: int, data: int) -> bool:
+        Raises:
+            Exception: If the word offset or count is out of range.
+        """
+        assert not self._mixed_mapping, 'Reading of output state is not supported with this Bus Coupler.'
+        assert 1 <= channel <= self.parameters['output_word_width'], \
+            f"channel out of range, must be between {1} and {self.parameters['output_word_width']}"
+
+        value = self.bus_coupler.modbus.read_holding_registers(self._output_word_addresses[channel - 1], 1)
+
+        return value[0] if value else error_value
+
+    def write_channel_word(self, channel: int, value: int) -> int:
         """
         Write a word to the terminal.
 
         Args:
-            word_offset: The word offset to write to.
-            data: The data to write.
+            channel: The channel number (1 based index) to write to.
 
         Returns:
-            The result of the write operation.
+            True if the write operation succeeded.
 
         Raises:
-            Exception: If the word offset is out of range.
+            Exception: If the word offset or count is out of range.
         """
-        if word_offset < 0 or word_offset + 1 > self.parameters['output_word_width']:
-            raise Exception("address out of range")
-        return self.bus_coupler.modbus.write_single_register(self._output_word_offset + word_offset, data)
+        assert 1 <= channel <= self.parameters['output_word_width'], \
+            f"channel out of range, must be between {1} and {self.parameters['output_word_width']}"
+
+        return self.bus_coupler.modbus.write_single_register(self._output_word_addresses[channel - 1], value)
 
     def set_normalized(self, channel: int, value: float):
         """
@@ -209,7 +184,7 @@ class AnalogOutputTerminal(BusTerminal):
             channel: The channel number to set.
             value: The normalized value to set.
         """
-        self.write_word(channel * 2 - 1, int(value * 0x7FFF))
+        self.write_channel_word(channel, int(value * 0x7FFF))
 
 
 class BusCoupler():
@@ -242,11 +217,14 @@ class BusCoupler():
     def __init__(self, host: str, port: int = 502, bus_terminals: list[Type[BusTerminal]] = [],
                  timeout: float = 5, watchdog: float = 0, debug: bool = False):
 
-        self.bus_terminals: list[Any] = list()
+        self.bus_terminals: list[BusTerminal] = list()
         self._next_output_bit_offset = 0
         self._next_input_bit_offset = 0
         self._next_output_word_offset = 0
         self._next_input_word_offset = 0
+        self._channel_spacing = 1
+        self._channel_offset = 0
+        self._mixed_mapping = True
         self.modbus = SimpleModbusClient(host, port, timeout=timeout, debug=debug)
 
         self.add_bus_terminals(bus_terminals)
@@ -255,7 +233,7 @@ class BusCoupler():
     def _init_hardware(self, watchdog: float):
         pass
 
-    def add_bus_terminals(self, bus_terminals: list[Type[BusTerminal]]) -> list[Any]:
+    def add_bus_terminals(self, bus_terminals: list[Type[BusTerminal]]) -> list[BusTerminal]:
         """
         Add bus terminals to the bus coupler.
 
@@ -265,18 +243,36 @@ class BusCoupler():
         Returns:
             The corresponding list of bus terminal objects.
         """
+
         for terminal_class in bus_terminals:
             assert issubclass(terminal_class, BusTerminal), f'{terminal_class} is not a bus terminal'
-            new_terminal = terminal_class(self,
-                                          self._next_output_bit_offset,
-                                          self._next_input_bit_offset,
-                                          self._next_output_word_offset,
-                                          self._next_input_word_offset)
 
-            self._next_output_bit_offset += terminal_class.parameters.get('output_bit_width', 0)
-            self._next_input_bit_offset += terminal_class.parameters.get('input_bit_width', 0)
-            self._next_output_word_offset += terminal_class.parameters.get('output_word_width', 0)
-            self._next_input_word_offset += terminal_class.parameters.get('input_word_width', 0)
+            def get_para(key: str):
+                return terminal_class.parameters.get(key, 0)
+
+            new_terminal = terminal_class(
+                self,
+                [i + self._next_output_bit_offset for i in range(get_para('output_bit_width'))],
+                [i + self._next_input_bit_offset for i in range(get_para('input_bit_width'))],
+                [i * self._channel_spacing + self._channel_offset + self._next_output_word_offset
+                 for i in range(get_para('output_word_width'))],
+                [i * self._channel_spacing + self._channel_offset + self._next_input_word_offset
+                 for i in range(get_para('input_word_width'))],
+                self._mixed_mapping)
+
+            output_word_width = get_para('output_word_width')
+            input_word_width = get_para('input_word_width')
+
+            if self._mixed_mapping:
+                # Shared mapping for word based inputs and outputs
+                word_width = max(output_word_width, input_word_width)
+                output_word_width = word_width
+                input_word_width = word_width
+
+            self._next_output_bit_offset += get_para('output_bit_width')
+            self._next_input_bit_offset += get_para('input_bit_width')
+            self._next_output_word_offset += output_word_width * self._channel_spacing
+            self._next_input_word_offset += input_word_width * self._channel_spacing
 
             self.bus_terminals.append(new_terminal)
 
