@@ -377,34 +377,6 @@ class KL4004(AnalogOutputTerminal):
         return self.set_normalized(channel, value / 10.0)
 
 
-class KL9010(BusTerminal):
-    """
-    End terminal, no I/O function
-    """
-    pass
-
-
-class KL9100(BusTerminal):
-    """
-    Potential supply terminal, no I/O function
-    """
-    pass
-
-
-class KL9183(BusTerminal):
-    """
-    Potential distribution terminal, no I/O function
-    """
-    pass
-
-
-class KL9188(BusTerminal):
-    """
-    Potential distribution terminal, no I/O function
-    """
-    pass
-
-
 class WAGO_750_600(BusTerminal):
     """
     End terminal, no I/O function
@@ -417,3 +389,1474 @@ class WAGO_750_602(BusTerminal):
     Potential supply terminal, no I/O function
     """
     pass
+
+
+# Automatic generated terminal classes:
+
+class KL1002(DigitalInputTerminal):
+    """
+    KL1002: 2-channel digital input, 24 V DC, 3 ms
+    (Automatic generated stub)
+    """
+    parameters = {'output_bit_width': 0, 'input_bit_width': 2}
+
+
+class KL1012(DigitalInputTerminal):
+    """
+    KL1012: 2-channel digital input, 24 V DC, 0.2 ms
+    (Automatic generated stub)
+    """
+    parameters = {'output_bit_width': 0, 'input_bit_width': 2}
+
+
+class KL1032(DigitalInputTerminal):
+    """
+    KL1032: 2-channel digital input, 48 V DC, 3 ms
+    (Automatic generated stub)
+    """
+    parameters = {'output_bit_width': 0, 'input_bit_width': 2}
+
+
+class KL1052(DigitalInputTerminal):
+    """
+    KL1052: 2-channel digital input, 24 V DC, 3 ms, positive/ground
+    switching
+    (Automatic generated stub)
+    """
+    parameters = {'output_bit_width': 0, 'input_bit_width': 2}
+
+
+class KL1114(DigitalInputTerminal):
+    """
+    KL1114: 4-channel digital input, 24 V DC, 0.2 ms, 2-/3-wire connection
+    (Automatic generated stub)
+    """
+    parameters = {'output_bit_width': 0, 'input_bit_width': 4}
+
+
+class KL1124(DigitalInputTerminal):
+    """
+    KL1124: 4-channel digital input, 5 V DC, 0.2 ms
+    (Automatic generated stub)
+    """
+    parameters = {'output_bit_width': 0, 'input_bit_width': 4}
+
+
+class KL1154(DigitalInputTerminal):
+    """
+    KL1154: 4-channel digital input, 24 V DC, 3 ms, positive/ground
+    switching
+    (Automatic generated stub)
+    """
+    parameters = {'output_bit_width': 0, 'input_bit_width': 4}
+
+
+class KL1164(DigitalInputTerminal):
+    """
+    KL1164: 4-channel digital input, 24 V DC, 0.2 ms, positive/ground
+    switching
+    (Automatic generated stub)
+    """
+    parameters = {'output_bit_width': 0, 'input_bit_width': 4}
+
+
+class KL1184(DigitalInputTerminal):
+    """
+    KL1184: 4-channel digital input, 24 V DC, 3 ms, ground switching
+    (Automatic generated stub)
+    """
+    parameters = {'output_bit_width': 0, 'input_bit_width': 4}
+
+
+class KL1194(DigitalInputTerminal):
+    """
+    KL1194: 4-channel digital input, 24 V DC, 0.2 ms, ground switching
+    (Automatic generated stub)
+    """
+    parameters = {'output_bit_width': 0, 'input_bit_width': 4}
+
+
+class KL1212(DigitalOutputTerminal):
+    """
+    KL1212: 2-channel digital input, 24 V DC, 3 ms, with diagnostics
+    (Automatic generated stub)
+    """
+    parameters = {'output_bit_width': 2, 'input_bit_width': 4}
+
+
+class KL1232(DigitalInputTerminal):
+    """
+    KL1232: 2-channel digital input, 24 V DC, 0.2 ms, pulse extension
+    (Automatic generated stub)
+    """
+    parameters = {'output_bit_width': 0, 'input_bit_width': 2}
+
+
+class KL1302(DigitalInputTerminal):
+    """
+    KL1302: 2-channel digital input, 24 V DC, 3 ms, type 2
+    (Automatic generated stub)
+    """
+    parameters = {'output_bit_width': 0, 'input_bit_width': 2}
+
+
+class KL1304(DigitalInputTerminal):
+    """
+    KL1304: 4-channel digital input, 24 V DC, 3 ms, type 2
+    (Automatic generated stub)
+    """
+    parameters = {'output_bit_width': 0, 'input_bit_width': 4}
+
+
+class KL1312(DigitalInputTerminal):
+    """
+    KL1312: 2-channel digital input, 24 V DC, 0.2 ms, type 2
+    (Automatic generated stub)
+    """
+    parameters = {'output_bit_width': 0, 'input_bit_width': 2}
+
+
+class KL1314(DigitalInputTerminal):
+    """
+    KL1314: 4-channel digital input, 24 V DC, 0.2 ms, type 2
+    (Automatic generated stub)
+    """
+    parameters = {'output_bit_width': 0, 'input_bit_width': 4}
+
+
+class KL1352(DigitalInputTerminal):
+    """
+    KL1352: 2-channel digital input, NAMUR
+    (Automatic generated stub)
+    """
+    parameters = {'output_bit_width': 0, 'input_bit_width': 4}
+
+
+class KL1362(DigitalInputTerminal):
+    """
+    KL1362: 2-channel digital input, break-in alarm, 24 V DC, 3 ms
+    (Automatic generated stub)
+    """
+    parameters = {'output_bit_width': 0, 'input_bit_width': 4}
+
+
+class KL1382(DigitalInputTerminal):
+    """
+    KL1382: 2-channel digital input, thermistor, 24 V DC, 30 ms
+    (Automatic generated stub)
+    """
+    parameters = {'output_bit_width': 0, 'input_bit_width': 4}
+
+
+class KL1402(DigitalInputTerminal):
+    """
+    KL1402: 2-channel digital input, 24 V DC, 3 ms, 2-wire connection
+    (Automatic generated stub)
+    """
+    parameters = {'output_bit_width': 0, 'input_bit_width': 2}
+
+
+class KL1404(DigitalInputTerminal):
+    """
+    KL1404: 4-channel digital input, 24 V DC, 3 ms, 2-wire connection
+    (Automatic generated stub)
+    """
+    parameters = {'output_bit_width': 0, 'input_bit_width': 4}
+
+
+class KL1412(DigitalInputTerminal):
+    """
+    KL1412: 2-channel digital input, 24 V DC, 0.2 ms
+    (Automatic generated stub)
+    """
+    parameters = {'output_bit_width': 0, 'input_bit_width': 2}
+
+
+class KL1414(DigitalInputTerminal):
+    """
+    KL1414: 4-channel digital input, 24 V DC, 0.2 ms, 2-wire connection
+    (Automatic generated stub)
+    """
+    parameters = {'output_bit_width': 0, 'input_bit_width': 4}
+
+
+class KL1418(DigitalInputTerminal):
+    """
+    KL1418: 8-channel digital input, 24 V DC, 0.2 ms
+    (Automatic generated stub)
+    """
+    parameters = {'output_bit_width': 0, 'input_bit_width': 8}
+
+
+class KL1434(DigitalInputTerminal):
+    """
+    KL1434: 4-channel digital input, 24 V DC, 0.2 ms, type 2, 2-wire
+    connection
+    (Automatic generated stub)
+    """
+    parameters = {'output_bit_width': 0, 'input_bit_width': 4}
+
+
+class KL1488(DigitalInputTerminal):
+    """
+    KL1488: 8-channel digital input, 24 V DC, 3 ms, ground switching
+    (Automatic generated stub)
+    """
+    parameters = {'output_bit_width': 0, 'input_bit_width': 8}
+
+
+class KL1498(DigitalInputTerminal):
+    """
+    KL1498: 8-channel digital input, 24 V DC, 0.2 ms, ground switching
+    (Automatic generated stub)
+    """
+    parameters = {'output_bit_width': 0, 'input_bit_width': 8}
+
+
+class KL1501(DigitalInputTerminal):
+    """
+    KL1501: 1-channel digital input, counter, 24 V DC, 100 kHz
+    (Automatic generated stub)
+    """
+    parameters = {'output_bit_width': 0, 'input_bit_width': 40}
+
+
+class KL1702(DigitalInputTerminal):
+    """
+    KL1702: 2-channel digital input, 120…230 V AC, 10 ms
+    (Automatic generated stub)
+    """
+    parameters = {'output_bit_width': 0, 'input_bit_width': 2}
+
+
+class KL1704(DigitalInputTerminal):
+    """
+    KL1704: 4-channel digital input, 120…230 V AC, 10 ms
+    (Automatic generated stub)
+    """
+    parameters = {'output_bit_width': 0, 'input_bit_width': 4}
+
+
+class KL1712(DigitalInputTerminal):
+    """
+    KL1712: 2-channel digital input, 120 V AC/DC, 10 ms
+    (Automatic generated stub)
+    """
+    parameters = {'output_bit_width': 0, 'input_bit_width': 2}
+
+
+class KL1722(DigitalInputTerminal):
+    """
+    KL1722: 2-channel digital input, 120…230 V AC, 10 ms, without power
+    contacts
+    (Automatic generated stub)
+    """
+    parameters = {'output_bit_width': 0, 'input_bit_width': 2}
+
+
+class KL1804(DigitalInputTerminal):
+    """
+    KL1804: 4-channel digital input, 24 V DC, 3 ms
+    (Automatic generated stub)
+    """
+    parameters = {'output_bit_width': 0, 'input_bit_width': 4}
+
+
+class KL1808(DigitalInputTerminal):
+    """
+    KL1808: 8-channel digital input, 24 V DC, 3 ms
+    (Automatic generated stub)
+    """
+    parameters = {'output_bit_width': 0, 'input_bit_width': 8}
+
+
+class KL1809(DigitalInputTerminal):
+    """
+    KL1809: 16-channel digital input, 24 V DC, 3 ms
+    (Automatic generated stub)
+    """
+    parameters = {'output_bit_width': 0, 'input_bit_width': 16}
+
+
+class KL1814(DigitalInputTerminal):
+    """
+    KL1814: 4-channel digital input, 24 V DC, 0.2 ms
+    (Automatic generated stub)
+    """
+    parameters = {'output_bit_width': 0, 'input_bit_width': 4}
+
+
+class KL1819(DigitalInputTerminal):
+    """
+    KL1819: 16-channel digital input, 24 V DC, 0.2 ms
+    (Automatic generated stub)
+    """
+    parameters = {'output_bit_width': 0, 'input_bit_width': 16}
+
+
+class KL1859(DigitalOutputTerminal):
+    """
+    KL1859: 8-channel digital input + 8-channel digital output, 24 V DC, 3
+    ms, 0.5 A
+    (Automatic generated stub)
+    """
+    parameters = {'output_bit_width': 8, 'input_bit_width': 8}
+
+
+class KL1862(DigitalInputTerminal):
+    """
+    KL1862: 16-channel digital input, 24 V DC, 3 ms, flat-ribbon cable
+    (Automatic generated stub)
+    """
+    parameters = {'output_bit_width': 0, 'input_bit_width': 16}
+
+
+class KL1872(DigitalInputTerminal):
+    """
+    KL1872: 16-channel digital input, 24 V DC, 0.2 ms, flat-ribbon cable
+    (Automatic generated stub)
+    """
+    parameters = {'output_bit_width': 0, 'input_bit_width': 16}
+
+
+class KL1889(DigitalInputTerminal):
+    """
+    KL1889: 16-channel digital input, 24 V DC, 3 ms, ground switching
+    (Automatic generated stub)
+    """
+    parameters = {'output_bit_width': 0, 'input_bit_width': 16}
+
+
+class KL2012(DigitalOutputTerminal):
+    """
+    KL2012: 2-channel digital output, 24 V DC, 0.5 A
+    (Automatic generated stub)
+    """
+    parameters = {'output_bit_width': 2, 'input_bit_width': 0}
+
+
+class KL2022(DigitalOutputTerminal):
+    """
+    KL2022: 2-channel digital output, 24 V DC, 2 A
+    (Automatic generated stub)
+    """
+    parameters = {'output_bit_width': 2, 'input_bit_width': 0}
+
+
+class KL2032(DigitalOutputTerminal):
+    """
+    KL2032: 2-channel digital output, 24 V DC, 0.5 A, reverse voltage
+    protection
+    (Automatic generated stub)
+    """
+    parameters = {'output_bit_width': 2, 'input_bit_width': 0}
+
+
+class KL2114(DigitalOutputTerminal):
+    """
+    KL2114: 4-channel digital output, 24 V DC, 0.5 A
+    (Automatic generated stub)
+    """
+    parameters = {'output_bit_width': 4, 'input_bit_width': 0}
+
+
+class KL2124(DigitalOutputTerminal):
+    """
+    KL2124: 4-channel digital output, 5 V DC, 20 mA
+    (Automatic generated stub)
+    """
+    parameters = {'output_bit_width': 4, 'input_bit_width': 0}
+
+
+class KL2134(DigitalOutputTerminal):
+    """
+    KL2134: 4-channel digital output, 24 V DC, 0.5 A, reverse voltage
+    protection
+    (Automatic generated stub)
+    """
+    parameters = {'output_bit_width': 4, 'input_bit_width': 0}
+
+
+class KL2184(DigitalOutputTerminal):
+    """
+    KL2184: 4-channel digital output, 24 V DC, 0.5 A, ground switching
+    (Automatic generated stub)
+    """
+    parameters = {'output_bit_width': 4, 'input_bit_width': 0}
+
+
+class KL2212(DigitalOutputTerminal):
+    """
+    KL2212: 2-channel digital output, 24 V DC, 0.5 A, with diagnostics
+    (Automatic generated stub)
+    """
+    parameters = {'output_bit_width': 4, 'input_bit_width': 4}
+
+
+class KL2284(DigitalOutputTerminal):
+    """
+    KL2284: 4-channel digital output, reverse switching, 24 V DC, 2 A
+    (Automatic generated stub)
+    """
+    parameters = {'output_bit_width': 8, 'input_bit_width': 0}
+
+
+class KL2442(DigitalOutputTerminal):
+    """
+    KL2442: 2-channel digital output, 24 V DC, 2 x 4 A/1 x 8 A
+    (Automatic generated stub)
+    """
+    parameters = {'output_bit_width': 2, 'input_bit_width': 0}
+
+
+class KL2488(DigitalOutputTerminal):
+    """
+    KL2488: 8-channel digital output, 24 V DC, 0.5 A, ground switching
+    (Automatic generated stub)
+    """
+    parameters = {'output_bit_width': 8, 'input_bit_width': 0}
+
+
+class KL2502(DigitalInputTerminal):
+    """
+    KL2502: 2-channel PWM output, 24 V DC, 0.1 A
+    (Automatic generated stub)
+    """
+    parameters = {'output_bit_width': 0, 'input_bit_width': 48}
+
+
+class KL2512(DigitalInputTerminal):
+    """
+    KL2512: 2-channel PWM output, 24 V DC, 1.5 A, ground switching
+    (Automatic generated stub)
+    """
+    parameters = {'output_bit_width': 0, 'input_bit_width': 48}
+
+
+class KL2532(DigitalInputTerminal):
+    """
+    KL2532: 2-channel motion interface, DC motor, 24 V DC, 1 A
+    (Automatic generated stub)
+    """
+    parameters = {'output_bit_width': 0, 'input_bit_width': 48}
+
+
+class KL2535(DigitalInputTerminal):
+    """
+    KL2535: 2-channel PWM output, 24 V DC, 1 A, current-controlled
+    (Automatic generated stub)
+    """
+    parameters = {'output_bit_width': 0, 'input_bit_width': 48}
+
+
+class KL2541(AnalogOutputTerminal):
+    """
+    KL2541: 1-channel motion interface, stepper motor, 48 V DC, 5 A, with
+    incremental encoder
+    (Automatic generated stub)
+    """
+    parameters = {'output_word_width': 2, 'input_word_width': 2}
+
+
+class KL2542(DigitalInputTerminal):
+    """
+    KL2542: 2-channel motion interface, DC motor, 48 V DC, 3.5 A
+    (Automatic generated stub)
+    """
+    parameters = {'output_bit_width': 0, 'input_bit_width': 48}
+
+
+class KL2545(DigitalInputTerminal):
+    """
+    KL2545: 2-channel PWM output, 8…50 V DC, 3.5 A, current-controlled
+    (Automatic generated stub)
+    """
+    parameters = {'output_bit_width': 0, 'input_bit_width': 48}
+
+
+class KL2552(DigitalInputTerminal):
+    """
+    KL2552: 2-channel motion interface, DC motor, 48 V DC, 5 A
+    (Automatic generated stub)
+    """
+    parameters = {'output_bit_width': 0, 'input_bit_width': 48}
+
+
+class KL2602(DigitalOutputTerminal):
+    """
+    KL2602: 2-channel relay output, 230 V AC, 30 V DC, 5 A
+    (Automatic generated stub)
+    """
+    parameters = {'output_bit_width': 2, 'input_bit_width': 0}
+
+
+class KL2612(DigitalOutputTerminal):
+    """
+    KL2612: 2-channel relay output, 125 V AC, 30 V DC, 0.5 A AC, 2 A DC
+    (Automatic generated stub)
+    """
+    parameters = {'output_bit_width': 2, 'input_bit_width': 0}
+
+
+class KL2622(DigitalOutputTerminal):
+    """
+    KL2622: 2-channel relay output, 230 V AC, 30 V DC, 5 A, without power
+    contacts
+    (Automatic generated stub)
+    """
+    parameters = {'output_bit_width': 2, 'input_bit_width': 0}
+
+
+class KL2631(DigitalOutputTerminal):
+    """
+    KL2631: 1-channel relay output, 400 V AC, 300 V DC, 2 A
+    (Automatic generated stub)
+    """
+    parameters = {'output_bit_width': 2, 'input_bit_width': 0}
+
+
+class KL2641(DigitalOutputTerminal):
+    """
+    KL2641: 1-channel relay output, 230 V AC, 16 A, manual operation
+    (Automatic generated stub)
+    """
+    parameters = {'output_bit_width': 2, 'input_bit_width': 2}
+
+
+class KL2652(DigitalOutputTerminal):
+    """
+    KL2652: 2-channel relay output, 230 V AC, 300 V DC, 5 A
+    (Automatic generated stub)
+    """
+    parameters = {'output_bit_width': 2, 'input_bit_width': 0}
+
+
+class KL2701(DigitalOutputTerminal):
+    """
+    KL2701: 1-channel solid-state relay output, 0…230 V AC/DC, 3 A
+    (Automatic generated stub)
+    """
+    parameters = {'output_bit_width': 2, 'input_bit_width': 0}
+
+
+class KL2712(DigitalOutputTerminal):
+    """
+    KL2712: 2-channel triac output, 12...230 V AC, 0.5 A
+    (Automatic generated stub)
+    """
+    parameters = {'output_bit_width': 2, 'input_bit_width': 0}
+
+
+class KL2722(DigitalOutputTerminal):
+    """
+    KL2722: 2-channel triac output, 12...230 V AC, 1 A
+    (Automatic generated stub)
+    """
+    parameters = {'output_bit_width': 2, 'input_bit_width': 0}
+
+
+class KL2732(DigitalOutputTerminal):
+    """
+    KL2732: 2-channel triac output, 12...230 V AC, 1 A, without power
+    contacts
+    (Automatic generated stub)
+    """
+    parameters = {'output_bit_width': 2, 'input_bit_width': 0}
+
+
+class KL2751(AnalogOutputTerminal):
+    """
+    KL2751: 1-channel universal dimmer, 230 V AC, 300 VA
+    (Automatic generated stub)
+    """
+    parameters = {'output_word_width': 1, 'input_word_width': 0}
+
+
+class KL2761(AnalogOutputTerminal):
+    """
+    KL2761: 1-channel universal dimmer, 230 V AC, 600 VA
+    (Automatic generated stub)
+    """
+    parameters = {'output_word_width': 1, 'input_word_width': 0}
+
+
+class KL2784(DigitalOutputTerminal):
+    """
+    KL2784: 4-channel solid state relay output, 30 V AC, 48 V DC, 2 A
+    (Automatic generated stub)
+    """
+    parameters = {'output_bit_width': 4, 'input_bit_width': 0}
+
+
+class KL2791(AnalogOutputTerminal):
+    """
+    KL2791: 1-channel motion interface, AC motor, 230 V AC, 0.9 A
+    (Automatic generated stub)
+    """
+    parameters = {'output_word_width': 1, 'input_word_width': 0}
+
+
+class KL2794(DigitalOutputTerminal):
+    """
+    KL2794: 4-channel solid state relay output, 30 V AC, 48 V DC, 2 A,
+    potential-free
+    (Automatic generated stub)
+    """
+    parameters = {'output_bit_width': 4, 'input_bit_width': 0}
+
+
+class KL2798(DigitalOutputTerminal):
+    """
+    KL2798: 8-channel solid state relay output, 30 V AC, 48 V DC, 2 A,
+    potential-free
+    (Automatic generated stub)
+    """
+    parameters = {'output_bit_width': 8, 'input_bit_width': 0}
+
+
+class KL2808(DigitalOutputTerminal):
+    """
+    KL2808: 8-channel digital output, 24 V DC, 0.5 A
+    (Automatic generated stub)
+    """
+    parameters = {'output_bit_width': 8, 'input_bit_width': 0}
+
+
+class KL2809(DigitalOutputTerminal):
+    """
+    KL2809: 16-channel digital output, 24 V DC, 0.5 A
+    (Automatic generated stub)
+    """
+    parameters = {'output_bit_width': 16, 'input_bit_width': 0}
+
+
+class KL2828(DigitalOutputTerminal):
+    """
+    KL2828: 8-channel digital output, 24 V DC, 2 A
+    (Automatic generated stub)
+    """
+    parameters = {'output_bit_width': 8, 'input_bit_width': 0}
+
+
+class KL2872(DigitalOutputTerminal):
+    """
+    KL2872: 16-channel digital output, 24 V DC, 0.5 A, flat-ribbon cable
+    (Automatic generated stub)
+    """
+    parameters = {'output_bit_width': 16, 'input_bit_width': 0}
+
+
+class KL2889(DigitalOutputTerminal):
+    """
+    KL2889: 16-channel digital output, 24 V DC, 0.5 A, ground switching
+    (Automatic generated stub)
+    """
+    parameters = {'output_bit_width': 16, 'input_bit_width': 0}
+
+
+class KL3001(AnalogInputTerminal):
+    """
+    KL3001: 1-channel analog input, voltage, ±10 V, 12 bit, differential
+    (Automatic generated stub)
+    """
+    parameters = {'output_word_width': 0, 'input_word_width': 1}
+
+
+class KL3002(AnalogInputTerminal):
+    """
+    KL3002: 2-channel analog input, voltage, ±10 V, 12 bit, differential
+    (Automatic generated stub)
+    """
+    parameters = {'output_word_width': 0, 'input_word_width': 2}
+
+
+class KL3011(AnalogInputTerminal):
+    """
+    KL3011: 1-channel analog input, current, 0…20 mA, 12 bit, differential
+    (Automatic generated stub)
+    """
+    parameters = {'output_word_width': 0, 'input_word_width': 1}
+
+
+class KL3012(AnalogInputTerminal):
+    """
+    KL3012: 2-channel analog input, current, 0…20 mA, 12 bit, differential
+    (Automatic generated stub)
+    """
+    parameters = {'output_word_width': 0, 'input_word_width': 2}
+
+
+class KL3021(AnalogInputTerminal):
+    """
+    KL3021: 1-channel analog input, current, 4…20 mA, 12 bit, differential
+    (Automatic generated stub)
+    """
+    parameters = {'output_word_width': 0, 'input_word_width': 1}
+
+
+class KL3022(AnalogInputTerminal):
+    """
+    KL3022: 2-channel analog input, current, 4…20 mA, 12 bit, differential
+    (Automatic generated stub)
+    """
+    parameters = {'output_word_width': 0, 'input_word_width': 2}
+
+
+class KL3041(AnalogInputTerminal):
+    """
+    KL3041: 1-channel analog input, current, 0…20 mA, 12 bit, single-ended
+    (Automatic generated stub)
+    """
+    parameters = {'output_word_width': 0, 'input_word_width': 1}
+
+
+class KL3044(AnalogInputTerminal):
+    """
+    KL3044: 4-channel analog input, current, 0…20 mA, 12 bit, single-ended
+    (Automatic generated stub)
+    """
+    parameters = {'output_word_width': 0, 'input_word_width': 4}
+
+
+class KL3051(AnalogInputTerminal):
+    """
+    KL3051: 1-channel analog input, current, 4…20 mA, 12 bit, single-ended
+    (Automatic generated stub)
+    """
+    parameters = {'output_word_width': 0, 'input_word_width': 1}
+
+
+class KL3052(AnalogInputTerminal):
+    """
+    KL3052: 2-channel analog input, current, 4…20 mA, 12 bit, single-ended
+    (Automatic generated stub)
+    """
+    parameters = {'output_word_width': 0, 'input_word_width': 2}
+
+
+class KL3061(AnalogInputTerminal):
+    """
+    KL3061: 1-channel analog input, voltage, 0…10 V, 12 bit, single-ended
+    (Automatic generated stub)
+    """
+    parameters = {'output_word_width': 0, 'input_word_width': 1}
+
+
+class KL3062(AnalogInputTerminal):
+    """
+    KL3062: 2-channel analog input, voltage, 0…10 V, 12 bit, single-ended
+    (Automatic generated stub)
+    """
+    parameters = {'output_word_width': 0, 'input_word_width': 2}
+
+
+class KL3064(AnalogInputTerminal):
+    """
+    KL3064: 4-channel analog input, voltage, 0…10 V, 12 bit, single-ended,
+    with shield connector
+    (Automatic generated stub)
+    """
+    parameters = {'output_word_width': 0, 'input_word_width': 4}
+
+
+class KL3102(AnalogInputTerminal):
+    """
+    KL3102: 2-channel analog input, voltage, ±10 V, 16 bit, differential
+    (Automatic generated stub)
+    """
+    parameters = {'output_word_width': 0, 'input_word_width': 2}
+
+
+class KL3112(AnalogInputTerminal):
+    """
+    KL3112: 2-channel analog input, current, 0…20 mA, 16 bit, differential
+    (Automatic generated stub)
+    """
+    parameters = {'output_word_width': 0, 'input_word_width': 2}
+
+
+class KL3122(AnalogInputTerminal):
+    """
+    KL3122: 2-channel analog input, current, 4…20 mA, 16 bit, differential
+    (Automatic generated stub)
+    """
+    parameters = {'output_word_width': 0, 'input_word_width': 2}
+
+
+class KL3132(AnalogInputTerminal):
+    """
+    KL3132: 2-channel analog input, voltage, ±10 V, 16 bit, differential,
+    high-precision
+    (Automatic generated stub)
+    """
+    parameters = {'output_word_width': 0, 'input_word_width': 2}
+
+
+class KL3142(AnalogInputTerminal):
+    """
+    KL3142: 2-channel analog input, current, 0…20 mA, 16 bit,
+    differential, high-precision
+    (Automatic generated stub)
+    """
+    parameters = {'output_word_width': 0, 'input_word_width': 2}
+
+
+class KL3152(AnalogInputTerminal):
+    """
+    KL3152: 2-channel analog input, current, 4…20 mA, 16 bit,
+    differential, high-precision
+    (Automatic generated stub)
+    """
+    parameters = {'output_word_width': 0, 'input_word_width': 2}
+
+
+class KL3162(AnalogInputTerminal):
+    """
+    KL3162: 2-channel analog input, voltage, 0…10 V, 16 bit, differential,
+    high-precision
+    (Automatic generated stub)
+    """
+    parameters = {'output_word_width': 0, 'input_word_width': 2}
+
+
+class KL3172(AnalogInputTerminal):
+    """
+    KL3172: 2-channel analog input, voltage, 0…2 V, 16 bit, differential,
+    high-precision
+    (Automatic generated stub)
+    """
+    parameters = {'output_word_width': 0, 'input_word_width': 2}
+
+
+class KL3182(AnalogInputTerminal):
+    """
+    KL3182: 2-channel analog input, voltage, ±2 V, 16 bit, differential,
+    high-precision
+    (Automatic generated stub)
+    """
+    parameters = {'output_word_width': 0, 'input_word_width': 2}
+
+
+class KL3201(AnalogInputTerminal):
+    """
+    KL3201: 1-channel analog input, temperature, RTD (Pt100), 16 bit
+    (Automatic generated stub)
+    """
+    parameters = {'output_word_width': 0, 'input_word_width': 1}
+
+
+class KL3204(AnalogInputTerminal):
+    """
+    KL3204: 4-channel analog input, temperature, RTD (Pt100), 16 bit
+    (Automatic generated stub)
+    """
+    parameters = {'output_word_width': 0, 'input_word_width': 4}
+
+
+class KL3222(AnalogInputTerminal):
+    """
+    KL3222: 2-channel analog input, temperature, RTD (Pt100), 16 bit,
+    high-precision
+    (Automatic generated stub)
+    """
+    parameters = {'output_word_width': 0, 'input_word_width': 2}
+
+
+class KL3228(AnalogInputTerminal):
+    """
+    KL3228: 8-channel analog input, temperature, RTD (Pt1000, Ni1000), 16
+    bit
+    (Automatic generated stub)
+    """
+    parameters = {'output_word_width': 0, 'input_word_width': 8}
+
+
+class KL3311(AnalogInputTerminal):
+    """
+    KL3311: 1-channel analog input, temperature, thermocouple, 16 bit
+    (Automatic generated stub)
+    """
+    parameters = {'output_word_width': 0, 'input_word_width': 1}
+
+
+class KL3312(AnalogInputTerminal):
+    """
+    KL3312: 2-channel analog input, temperature, thermocouple, 16 bit
+    (Automatic generated stub)
+    """
+    parameters = {'output_word_width': 0, 'input_word_width': 2}
+
+
+class KL3314(AnalogInputTerminal):
+    """
+    KL3314: 4-channel analog input, temperature, thermocouple, 16 bit
+    (Automatic generated stub)
+    """
+    parameters = {'output_word_width': 0, 'input_word_width': 4}
+
+
+class KL3351(AnalogInputTerminal):
+    """
+    KL3351: 1-channel analog input, measuring bridge, full bridge, 16 bit
+    (Automatic generated stub)
+    """
+    parameters = {'output_word_width': 0, 'input_word_width': 2}
+
+
+class KL3356(AnalogInputTerminal):
+    """
+    KL3356: 1-channel analog input, measuring bridge, full bridge, 16 bit,
+    high-precision
+    (Automatic generated stub)
+    """
+    parameters = {'output_word_width': 0, 'input_word_width': 2}
+
+
+class KL3361(AnalogOutputTerminal):
+    """
+    KL3361: 1-channel analog input, voltage, ±20 mV, 15 bit, oscilloscope
+    function
+    (Automatic generated stub)
+    """
+    parameters = {'output_word_width': 1, 'input_word_width': 1}
+
+
+class KL3362(AnalogOutputTerminal):
+    """
+    KL3362: 2-channel analog input, voltage, ±10 V, 15 bit, oscilloscope
+    function
+    (Automatic generated stub)
+    """
+    parameters = {'output_word_width': 2, 'input_word_width': 2}
+
+
+class KL3403(AnalogOutputTerminal):
+    """
+    KL3403: 3-channel analog input, power measurement, 500 V AC, 1 A, 16
+    bit
+    (Automatic generated stub)
+    """
+    parameters = {'output_word_width': 3, 'input_word_width': 3}
+
+
+class KL3404(AnalogInputTerminal):
+    """
+    KL3404: 4-channel analog input, voltage, ±10 V, 12 bit, single-ended
+    (Automatic generated stub)
+    """
+    parameters = {'output_word_width': 0, 'input_word_width': 4}
+
+
+class KL3408(AnalogInputTerminal):
+    """
+    KL3408: 8-channel analog input, voltage, ±10 V, 12 bit, single-ended
+    (Automatic generated stub)
+    """
+    parameters = {'output_word_width': 0, 'input_word_width': 8}
+
+
+class KL3444(AnalogInputTerminal):
+    """
+    KL3444: 4-channel analog input, current, 0…20 mA, 12 bit, single-ended
+    (Automatic generated stub)
+    """
+    parameters = {'output_word_width': 0, 'input_word_width': 4}
+
+
+class KL3448(AnalogInputTerminal):
+    """
+    KL3448: 8-channel analog input, current, 0…20 mA, 12 bit, single-ended
+    (Automatic generated stub)
+    """
+    parameters = {'output_word_width': 0, 'input_word_width': 8}
+
+
+class KL3454(AnalogInputTerminal):
+    """
+    KL3454: 4-channel analog input, current, 4…20 mA, 12 bit, single-ended
+    (Automatic generated stub)
+    """
+    parameters = {'output_word_width': 0, 'input_word_width': 4}
+
+
+class KL3458(AnalogInputTerminal):
+    """
+    KL3458: 8-channel analog input, current, 4…20 mA, 12 bit, single-ended
+    (Automatic generated stub)
+    """
+    parameters = {'output_word_width': 0, 'input_word_width': 8}
+
+
+class KL3464(AnalogInputTerminal):
+    """
+    KL3464: 4-channel analog input, voltage, 0…10 V, 12 bit, single-ended
+    (Automatic generated stub)
+    """
+    parameters = {'output_word_width': 0, 'input_word_width': 4}
+
+
+class KL3468(AnalogInputTerminal):
+    """
+    KL3468: 8-channel analog input, voltage, 0…10 V, 12 bit, single-ended
+    (Automatic generated stub)
+    """
+    parameters = {'output_word_width': 0, 'input_word_width': 8}
+
+
+class KL4001(AnalogOutputTerminal):
+    """
+    KL4001: 1-channel analog output, voltage, 0…10 V, 12 bit, differential
+    (Automatic generated stub)
+    """
+    parameters = {'output_word_width': 1, 'input_word_width': 0}
+
+
+class KL4011(AnalogOutputTerminal):
+    """
+    KL4011: 1-channel analog output, current, 0…20 mA, 12 bit,
+    single-ended
+    (Automatic generated stub)
+    """
+    parameters = {'output_word_width': 1, 'input_word_width': 0}
+
+
+class KL4012(AnalogOutputTerminal):
+    """
+    KL4012: 2-channel analog output, current, 0…20 mA, 12 bit,
+    single-ended
+    (Automatic generated stub)
+    """
+    parameters = {'output_word_width': 2, 'input_word_width': 0}
+
+
+class KL4021(AnalogOutputTerminal):
+    """
+    KL4021: 1-channel analog output, current, 4…20 mA, 12 bit,
+    single-ended
+    (Automatic generated stub)
+    """
+    parameters = {'output_word_width': 1, 'input_word_width': 0}
+
+
+class KL4022(AnalogOutputTerminal):
+    """
+    KL4022: 2-channel analog output, current, 4…20 mA, 12 bit,
+    single-ended
+    (Automatic generated stub)
+    """
+    parameters = {'output_word_width': 2, 'input_word_width': 0}
+
+
+class KL4031(AnalogOutputTerminal):
+    """
+    KL4031: 1-channel analog output, voltage, ±10 V, 12 bit, differential
+    (Automatic generated stub)
+    """
+    parameters = {'output_word_width': 1, 'input_word_width': 0}
+
+
+class KL4032(AnalogOutputTerminal):
+    """
+    KL4032: 2-channel analog output, voltage, ±10 V, 12 bit, differential
+    (Automatic generated stub)
+    """
+    parameters = {'output_word_width': 2, 'input_word_width': 0}
+
+
+class KL4034(AnalogOutputTerminal):
+    """
+    KL4034: 4-channel analog output, voltage, ±10 V, 12 bit, differential
+    (Automatic generated stub)
+    """
+    parameters = {'output_word_width': 4, 'input_word_width': 0}
+
+
+class KL4112(AnalogOutputTerminal):
+    """
+    KL4112: 2-channel analog output, current, 0…20 mA, 16 bit,
+    single-ended
+    (Automatic generated stub)
+    """
+    parameters = {'output_word_width': 2, 'input_word_width': 0}
+
+
+class KL4404(AnalogOutputTerminal):
+    """
+    KL4404: 4-channel analog output, voltage, 0…10 V, 12 bit, single-ended
+    (Automatic generated stub)
+    """
+    parameters = {'output_word_width': 4, 'input_word_width': 0}
+
+
+class KL4408(AnalogOutputTerminal):
+    """
+    KL4408: 8-channel analog output, voltage, 0…10 V, 12 bit, single-ended
+    (Automatic generated stub)
+    """
+    parameters = {'output_word_width': 8, 'input_word_width': 0}
+
+
+class KL4414(AnalogOutputTerminal):
+    """
+    KL4414: 4-channel analog output, current, 0…20 mA, 12 bit,
+    single-ended
+    (Automatic generated stub)
+    """
+    parameters = {'output_word_width': 4, 'input_word_width': 0}
+
+
+class KL4418(AnalogOutputTerminal):
+    """
+    KL4418: 8-channel analog output, current, 0…20 mA, 12 bit,
+    single-ended
+    (Automatic generated stub)
+    """
+    parameters = {'output_word_width': 8, 'input_word_width': 0}
+
+
+class KL4424(AnalogOutputTerminal):
+    """
+    KL4424: 4-channel analog output, current, 4…20 mA, 12 bit,
+    single-ended
+    (Automatic generated stub)
+    """
+    parameters = {'output_word_width': 4, 'input_word_width': 0}
+
+
+class KL4428(AnalogOutputTerminal):
+    """
+    KL4428: 8-channel analog output, current, 4…20 mA, 12 bit,
+    single-ended
+    (Automatic generated stub)
+    """
+    parameters = {'output_word_width': 8, 'input_word_width': 0}
+
+
+class KL4434(AnalogOutputTerminal):
+    """
+    KL4434: 4-channel analog output, voltage, ±10 V, 12 bit, single-ended
+    (Automatic generated stub)
+    """
+    parameters = {'output_word_width': 4, 'input_word_width': 0}
+
+
+class KL4438(AnalogOutputTerminal):
+    """
+    KL4438: 8-channel analog output, voltage, ±10 V, 12 bit, single-ended
+    (Automatic generated stub)
+    """
+    parameters = {'output_word_width': 8, 'input_word_width': 0}
+
+
+class KL4494(AnalogOutputTerminal):
+    """
+    KL4494: 2-channel analog input + 2-channel analog output, voltage, ±10
+    V, 12 bit, single-ended
+    (Automatic generated stub)
+    """
+    parameters = {'output_word_width': 2, 'input_word_width': 2}
+
+
+class KL5051(AnalogOutputTerminal):
+    """
+    KL5051: 1-channel encoder interface, SSI, bidirectional
+    (Automatic generated stub)
+    """
+    parameters = {'output_word_width': 2, 'input_word_width': 2}
+
+
+class KL5101(AnalogInputTerminal):
+    """
+    KL5101: 1-channel encoder interface, incremental, 5 V DC (DIFF RS422,
+    TTL), 1 MHz
+    (Automatic generated stub)
+    """
+    parameters = {'output_word_width': 0, 'input_word_width': 1}
+
+
+class KL5111(AnalogOutputTerminal):
+    """
+    KL5111: 1-channel encoder interface, incremental, 24 V DC HTL, 250 kHz
+    (Automatic generated stub)
+    """
+    parameters = {'output_word_width': 2, 'input_word_width': 2}
+
+
+class KL5121(AnalogOutputTerminal):
+    """
+    KL5121: 1-channel encoder interface, incremental, 24 V DC HTL, 250
+    kHz, with 4 x digital output 24 V DC, linear path control
+    (Automatic generated stub)
+    """
+    parameters = {'output_word_width': 2, 'input_word_width': 2}
+
+
+class KL9010(BusTerminal):
+    """
+    KL9010: End terminal
+    (no I/O function)
+    """
+    pass
+
+
+class KL9070(BusTerminal):
+    """
+    KL9070: Shield terminal
+    (no I/O function)
+    """
+    pass
+
+
+class KL9080(BusTerminal):
+    """
+    KL9080: Separation terminal
+    (no I/O function)
+    """
+    pass
+
+
+class KL9100(BusTerminal):
+    """
+    KL9100: Potential supply terminal, 24 V DC
+    (no I/O function)
+    """
+    pass
+
+
+class KL9150(BusTerminal):
+    """
+    KL9150: Potential supply terminal, 120…230 V AC
+    (no I/O function)
+    """
+    pass
+
+
+class KL9180(BusTerminal):
+    """
+    KL9180: Potential distribution terminal, 2 x 24 V DC; 2 x 0 V DC, 2 x
+    PE
+    (no I/O function)
+    """
+    pass
+
+
+class KL9184(BusTerminal):
+    """
+    KL9184: potential distribution terminal, 8 x 24 V DC, 8 x 0 V DC
+    (no I/O function)
+    """
+    pass
+
+
+class KL9185(BusTerminal):
+    """
+    KL9185: potential distribution terminal, 4 x 24 V DC, 4 x 0 V DC
+    (no I/O function)
+    """
+    pass
+
+
+class KL9186(BusTerminal):
+    """
+    KL9186: Potential distribution terminal, 8 x 24 V DC
+    (no I/O function)
+    """
+    pass
+
+
+class KL9187(BusTerminal):
+    """
+    KL9187: Potential distribution terminal, 8 x 0 V DC
+    (no I/O function)
+    """
+    pass
+
+
+class KL9188(BusTerminal):
+    """
+    KL9188: Potential distribution terminal, 16 x 24 V DC
+    (no I/O function)
+    """
+    pass
+
+
+class KL9189(BusTerminal):
+    """
+    KL9189: Potential distribution terminal, 16 x 0 V DC
+    (no I/O function)
+    """
+    pass
+
+
+class KL9190(BusTerminal):
+    """
+    KL9190: Potential supply terminal, any voltage up to 230 V AC
+    (no I/O function)
+    """
+    pass
+
+
+class KL9195(BusTerminal):
+    """
+    KL9195: Shield terminal
+    (no I/O function)
+    """
+    pass
+
+
+class KL9200(BusTerminal):
+    """
+    KL9200: Potential supply terminal, 24 V DC, with fuse
+    (no I/O function)
+    """
+    pass
+
+
+class KL9250(BusTerminal):
+    """
+    KL9250: Potential supply terminal, 120…230 V AC, with fuse
+    (no I/O function)
+    """
+    pass
+
+
+class KL9290(BusTerminal):
+    """
+    KL9290: Potential supply terminal, any voltage up to 230 V AC, with
+    fuse
+    (no I/O function)
+    """
+    pass
+
+
+class KL9380(BusTerminal):
+    """
+    KL9380: Mains filter terminal for dimmers
+    (no I/O function)
+    """
+    pass
+
+
+class KM1002(DigitalInputTerminal):
+    """
+    KM1002: Bus Terminal module, 16-channel digital input, 24 V DC, 3 ms
+    (Automatic generated stub)
+    """
+    parameters = {'output_bit_width': 0, 'input_bit_width': 16}
+
+
+class KM1004(DigitalInputTerminal):
+    """
+    KM1004: Bus Terminal module, 32-channel digital input, 24 V DC, 3 ms
+    (Automatic generated stub)
+    """
+    parameters = {'output_bit_width': 0, 'input_bit_width': 32}
+
+
+class KM1008(DigitalInputTerminal):
+    """
+    KM1008: Bus Terminal module, 64-channel digital input, 24 V DC, 3 ms
+    (Automatic generated stub)
+    """
+    parameters = {'output_bit_width': 0, 'input_bit_width': 64}
+
+
+class KM1012(DigitalInputTerminal):
+    """
+    KM1012: Bus Terminal module, 16-channel digital input, 24 V DC, 0.2 ms
+    (Automatic generated stub)
+    """
+    parameters = {'output_bit_width': 0, 'input_bit_width': 16}
+
+
+class KM1014(DigitalInputTerminal):
+    """
+    KM1014: Bus Terminal module, 32-channel digital input, 24 V DC, 0.2 ms
+    (Automatic generated stub)
+    """
+    parameters = {'output_bit_width': 0, 'input_bit_width': 32}
+
+
+class KM1018(DigitalInputTerminal):
+    """
+    KM1018: Bus Terminal module, 64-channel digital input, 24 V DC, 0.2 ms
+    (Automatic generated stub)
+    """
+    parameters = {'output_bit_width': 0, 'input_bit_width': 64}
+
+
+class KM1644(DigitalOutputTerminal):
+    """
+    KM1644: Bus Terminal module, 4-channel digital input, 24 V DC, manual
+    operation
+    (Automatic generated stub)
+    """
+    parameters = {'output_bit_width': 4, 'input_bit_width': 4}
+
+
+class KM2002(DigitalOutputTerminal):
+    """
+    KM2002: Bus Terminal module, 16-channel digital output, 24 V DC, 0.5 A
+    (Automatic generated stub)
+    """
+    parameters = {'output_bit_width': 16, 'input_bit_width': 0}
+
+
+class KM2004(DigitalOutputTerminal):
+    """
+    KM2004: Bus Terminal module, 32-channel digital output, 24 V DC, 0.5 A
+    (Automatic generated stub)
+    """
+    parameters = {'output_bit_width': 32, 'input_bit_width': 0}
+
+
+class KM2008(DigitalOutputTerminal):
+    """
+    KM2008: Bus Terminal module, 64-channel digital output, 24 V DC, 0.5 A
+    (Automatic generated stub)
+    """
+    parameters = {'output_bit_width': 64, 'input_bit_width': 0}
+
+
+class KM2042(DigitalOutputTerminal):
+    """
+    KM2042: Bus Terminal module, 16-channel digital output, 24 V DC, 0.5
+    A, D-sub
+    (Automatic generated stub)
+    """
+    parameters = {'output_bit_width': 16, 'input_bit_width': 0}
+
+
+class KM2604(DigitalOutputTerminal):
+    """
+    KM2604: Bus Terminal module, 4-channel relay output, 230 V AC, 16 A
+    (Automatic generated stub)
+    """
+    parameters = {'output_bit_width': 4, 'input_bit_width': 0}
+
+
+class KM2614(DigitalOutputTerminal):
+    """
+    KM2614: Bus Terminal module, 4-channel relay output, 230 V AC, 16 A,
+    manual/autom. operation
+    (Automatic generated stub)
+    """
+    parameters = {'output_bit_width': 4, 'input_bit_width': 0}
+
+
+class KM2642(DigitalOutputTerminal):
+    """
+    KM2642: Bus Terminal module, 2-channel digital output, 230 V AC, 6 A,
+    manual/automatic operation
+    (Automatic generated stub)
+    """
+    parameters = {'output_bit_width': 2, 'input_bit_width': 2}
+
+
+class KM2652(DigitalOutputTerminal):
+    """
+    KM2652: Bus Terminal module, 2-channel digital output, 230 V AC, 6 A,
+    manual/automatic operation
+    (Automatic generated stub)
+    """
+    parameters = {'output_bit_width': 2, 'input_bit_width': 4}
