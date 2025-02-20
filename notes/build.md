@@ -20,10 +20,10 @@ pytest
 
 # Build package:
 pip install build
-python3 -m build
+python -m build
 
 # Upload
 pip install twine
 #python3 -m twine upload dist/*
-python3 -m twine upload --repository testpypi dist/*  # Test repository: https://test.pypi.org/project/example_package_YOUR_USERNAME_HERE
+python -m twine upload dist/*
 ```
