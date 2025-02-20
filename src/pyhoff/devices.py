@@ -305,15 +305,18 @@ class KL4002(AnalogOutputTerminal):
     # Output: 2 x 16 Bit Daten (optional 2 x 8 Bit Control/Status)
     parameters = {'output_word_width': 2}
 
-    def set_voltage(self, channel: int, value: float):
+    def set_voltage(self, channel: int, value: float) -> bool:
         """
         Set a voltage value to a specific channel.
 
         Args:
             channel: The channel number to set.
             value: The voltage value to set.
+
+        Returns:
+            True if the write operation succeeded.
         """
-        self.set_normalized(channel, value / 10.0)
+        return self.set_normalized(channel, value / 10.0)
 
 
 class KL4132(AnalogOutputTerminal):
@@ -323,28 +326,34 @@ class KL4132(AnalogOutputTerminal):
     # Output: 2 x 16 Bit Daten (optional 2 x 8 Bit Control/Status)
     parameters = {'output_word_width': 2}
 
-    def set_normalized(self, channel: int, value: float):
+    def set_normalized(self, channel: int, value: float) -> bool:
         """
         Set a normalized value between -1 and +1 to a specific channel.
 
         Args:
             channel: The channel number to set.
             value: The normalized value to set.
+
+        Returns:
+            True if the write operation succeeded.
         """
         if value >= 0:
-            self.write_channel_word(channel, int(value * 0x7FFF))
+            return self.write_channel_word(channel, int(value * 0x7FFF))
         else:
-            self.write_channel_word(channel, int(0x10000 + value * 0x7FFF))
+            return self.write_channel_word(channel, int(0x10000 + value * 0x7FFF))
 
-    def set_voltage(self, channel: int, value: float):
+    def set_voltage(self, channel: int, value: float) -> bool:
         """
         Set a voltage value between -10 and +10 V to a specific channel.
 
         Args:
             channel: The channel number to set.
             value: The voltage value to set.
+
+        Returns:
+            True if the write operation succeeded.
         """
-        self.set_normalized(channel, value / 10.0)
+        return self.set_normalized(channel, value / 10.0)
 
 
 class KL4004(AnalogOutputTerminal):
@@ -354,15 +363,18 @@ class KL4004(AnalogOutputTerminal):
     # Output: 4 x 16 Bit Daten (optional 4 x 8 Bit Control/Status)
     parameters = {'output_word_width': 4}
 
-    def set_voltage(self, channel: int, value: float):
+    def set_voltage(self, channel: int, value: float) -> bool:
         """
         Set a voltage value to a specific channel.
 
         Args:
             channel: The channel number to set.
             value: The voltage value to set.
+
+        Returns:
+            True if the write operation succeeded.
         """
-        self.set_normalized(channel, value / 10.0)
+        return self.set_normalized(channel, value / 10.0)
 
 
 class KL9010(BusTerminal):
