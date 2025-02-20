@@ -44,7 +44,7 @@ class BusTerminal():
     def select(cls, bus_coupler: 'BusCoupler', terminal_number: int = 0):
         terminal_list = [bt for bt in bus_coupler.bus_terminals if isinstance(bt, cls)]
         assert terminal_list, f'No instance of {cls.__name__} configured at this BusCoupler'
-        assert 0 <= terminal_number < len(terminal_list), f'Out of range, select in range: 0..{len(terminal_list)-1}'
+        assert 0 <= terminal_number < len(terminal_list), f'Out of range, select in range: 0..{len(terminal_list) - 1}'
         return terminal_list[terminal_number]
 
 
