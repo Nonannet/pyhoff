@@ -34,26 +34,24 @@ It is easy to use as the following example code shows:
 from pyhoff.devices import *
 
 # connect to the BK9050 by tcp/ip on default port 502
-bus_coupler = BK9050("172.16.17.1")
+bk = BK9050("172.16.17.1")
 
-# list of all bus terminals connected to the bus coupler
+# add all bus terminals connected to the bus coupler
 # in the order of the physical arrangement
-terminal_list = [KL2404, KL2424, KL9100, KL1104, KL3202,
-                 KL4002, KL9188, KL3054, KL3214, KL4004,
-                 KL9010]
+bk.add_bus_terminals(KL2404, KL2424, KL9100, KL1104, KL3202,
+                     KL3202, KL4002, KL9188, KL3054, KL3214,
+                     KL4004, KL9010)
 
-terminals = bus_coupler.add_bus_terminals(terminal_list)
+# Set 1. output of the first KL2404-type bus terminal to hi
+KL2404.select(bk, 0).write_coil(1, True)
 
-# Set 1. output of the first bus terminal (KL2404) to hi
-terminals[0].write_coil(1, True)
-
-# read the temperature from the 2. channel of the 5. bus
-# terminal (KL3202)
-t = terminals[4].read_temperature(2)
+# read temperature from the 2. channel of the 2. KL3202-type
+# bus terminal
+t = KL3202.select(bk, 1).read_temperature(2)
 print(f"t = {t:.1f} °C")
 
-# Set 1. output of the 6. bus terminal (KL4002) to 4.2 V
-terminals[5].set_voltage(1, 4.2)
+# Set 1. output of the 1. KL4002-type bus terminal to 4.2 V
+KL4002.select(bk, 0).set_voltage(1, 4.2)
 
 ```
 
