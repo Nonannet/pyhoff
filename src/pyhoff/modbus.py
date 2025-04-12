@@ -63,19 +63,31 @@ class SimpleModbusClient:
         last_error: contains last error message or empty string if no error occurred
         debug: if True prints out transmitted and received bytes in hex
 
-    Example:
-        >>> client = SimpleModbusClient('localhost', port = 502, unit_id = 1)
-        >>> print(client.read_coils(0, 10))
-        >>> print(client.read_discrete_inputs(0, 10))
-        >>> print(client.read_holding_registers(0, 10))
-        >>> print(client.read_input_registers(0, 10))
-        >>> print(client.write_single_coil(0, True))
-        >>> print(client.write_single_register(0, 1234))
-        >>> print(client.write_multiple_coils(0, [True, False, True]))
-        >>> print(client.write_multiple_registers(0, [1234, 5678]))
-        >>> client.close()
     """
+
     def __init__(self, host: str, port: int = 502, unit_id: int = 1, timeout: float = 5, debug: bool = False):
+        """
+        Instantiate a Modbus TCP client
+
+        Args:
+            host: hostname or IP address
+            port: server port
+            unit_id: ModBus id
+            timeout: socket timeout in seconds
+            debug: if True prints out transmitted and received bytes in hex
+
+        Example:
+            >>> client = SimpleModbusClient('localhost', port = 502, unit_id = 1)
+            >>> print(client.read_coils(0, 10))
+            >>> print(client.read_discrete_inputs(0, 10))
+            >>> print(client.read_holding_registers(0, 10))
+            >>> print(client.read_input_registers(0, 10))
+            >>> print(client.write_single_coil(0, True))
+            >>> print(client.write_single_register(0, 1234))
+            >>> print(client.write_multiple_coils(0, [True, False, True]))
+            >>> print(client.write_multiple_registers(0, [1234, 5678]))
+            >>> client.close()
+        """
         assert 0 <= unit_id < 256
 
         self.host = host
@@ -88,6 +100,10 @@ class SimpleModbusClient:
         self.debug = debug
 
     def connect(self) -> bool:
+        """
+        Connect manual to the configured modbus server. Usually there is
+        no need to call this function since it is handled automatically.
+        """
         for af, st, pr, _, sa in socket.getaddrinfo(self.host, self.port,
                                                     socket.AF_UNSPEC,
                                                     socket.SOCK_STREAM):

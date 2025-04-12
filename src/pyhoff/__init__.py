@@ -13,13 +13,6 @@ class BusTerminal():
     """
     Base class for all bus terminals.
 
-    Args:
-        bus_coupler: The bus coupler to which this terminal is connected.
-        output_bit_addresses: List of addresses of the output bits.
-        input_bit_addresses: List of addresses of input bits.
-        output_word_addresses: List of addresses of output words.
-        input_word_addresses: List of addresses of input words.
-
     Attributes:
         bus_coupler: The bus coupler to which this terminal is connected.
         parameters: The parameters of the terminal.
@@ -32,7 +25,16 @@ class BusTerminal():
                  output_word_addresses: list[int],
                  input_word_addresses: list[int],
                  mixed_mapping: bool):
+        """
+        Instantiate a new BusTerminal base class.
 
+        Args:
+            bus_coupler: The bus coupler to which this terminal is connected.
+            output_bit_addresses: List of addresses of the output bits.
+            input_bit_addresses: List of addresses of input bits.
+            output_word_addresses: List of addresses of output words.
+            input_word_addresses: List of addresses of input words.
+        """
         self.bus_coupler = bus_coupler
         self._output_bit_addresses = output_bit_addresses
         self._input_bit_addresses = input_bit_addresses
@@ -221,19 +223,30 @@ class BusCoupler():
         bus_terminals: A list of bus terminal classes according to the
             connected terminals.
         modbus: The underlying modbus client used for the connection.
-
-    Examples:
-        >>> from pyhoff.devices import *
-        >>> bk = BK9000('192.168.0.23', bus_terminals=[KL3202, KL9010])
-        >>> t1 = bk.terminals[0].read_temperature(1)
-        >>> t2 = bk.terminals[0].read_temperature(2)
-        >>> print(f"Temperature ch1: {t1:.1f} °C, Temperature ch2: {t2:.1f} °C")
-        Temperature ch1: 23.2 °C, Temperature ch2: 22.1 °C
     """
 
     def __init__(self, host: str, port: int = 502, bus_terminals: Iterable[Type[BusTerminal]] = [],
                  timeout: float = 5, watchdog: float = 0, debug: bool = False):
+        """
+        Instantiate a new bus coupler base class.
 
+        Args:
+            host: ip or hostname of the bus coupler
+            port: port of the modbus host
+            debug: outputs modbus debug information
+            timeout: timeout for waiting for the device response
+            watchdog: time in seconds after the device sets all outputs to
+                default state. A value of 0 deactivates the watchdog.
+            debug: If True, debug information is printed.
+
+        Examples:
+            >>> from pyhoff.devices import *
+            >>> bk = BK9000('192.168.0.23', bus_terminals=[KL3202, KL9010])
+            >>> t1 = bk.terminals[0].read_temperature(1)
+            >>> t2 = bk.terminals[0].read_temperature(2)
+            >>> print(f"Temperature ch1: {t1:.1f} °C, Temperature ch2: {t2:.1f} °C")
+            Temperature ch1: 23.2 °C, Temperature ch2: 22.1 °C
+        """
         self.bus_terminals: list[BusTerminal] = list()
         self._next_output_bit_offset = 0
         self._next_input_bit_offset = 0
