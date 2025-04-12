@@ -79,10 +79,10 @@ To get started with developing the `pyhoff` package, follow these steps:
    ```
 
 3. **Install Dev Dependencies**
-   Install the dependencies required for development using `pip`:
+   Install pyhoff from source plus the dependencies required for development using `pip`:
 
    ```bash
-   pip install -r requirements-dev.txt
+   pip install -e .[dev]
    ```
 
 4. **Run Tests**
