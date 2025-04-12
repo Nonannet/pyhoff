@@ -7,7 +7,7 @@ class BK9000(BusCoupler):
     """
     BK9000 ModBus TCP bus coupler
     """
-    def _init_hardware(self, watchdog: float):
+    def _init_hardware(self, watchdog: float) -> None:
         # https://download.beckhoff.com/download/document/io/bus-terminals/bk9000_bk9050_bk9100de.pdf
         # config watchdog on page 58
 
@@ -44,7 +44,7 @@ class WAGO_750_352(BusCoupler):
     """
     Wago 750-352 ModBus TCP bus coupler
     """
-    def _init_hardware(self, watchdog: float):
+    def _init_hardware(self, watchdog: float) -> None:
         # deactivate/reset watchdog timer:
         self.modbus.write_single_register(0x1005, 0xAAAA)
         self.modbus.write_single_register(0x1005, 0x5555)

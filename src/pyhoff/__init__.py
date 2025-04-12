@@ -41,7 +41,7 @@ class BusTerminal():
         self._mixed_mapping = mixed_mapping
 
     @classmethod
-    def select(cls, bus_coupler: 'BusCoupler', terminal_number: int = 0):
+    def select(cls, bus_coupler: 'BusCoupler', terminal_number: int = 0) -> 'BusTerminal':
         terminal_list = [bt for bt in bus_coupler.bus_terminals if isinstance(bt, cls)]
         assert terminal_list, f'No instance of {cls.__name__} configured at this BusCoupler'
         assert 0 <= terminal_number < len(terminal_list), f'Out of range, select in range: 0..{len(terminal_list) - 1}'
@@ -247,7 +247,7 @@ class BusCoupler():
         self.add_bus_terminals(bus_terminals)
         self._init_hardware(watchdog)
 
-    def _init_hardware(self, watchdog: float):
+    def _init_hardware(self, watchdog: float) -> None:
         pass
 
     def add_bus_terminals(self, *new_bus_terminals: Type[BusTerminal] | Iterable[Type[BusTerminal]]) -> list[BusTerminal]:
@@ -272,7 +272,7 @@ class BusCoupler():
         for terminal_class in terminal_classes:
             assert _is_bus_terminal(terminal_class), f'{terminal_class} is not a bus terminal'
 
-            def get_para(key: str):
+            def get_para(key: str) -> int:
                 return terminal_class.parameters.get(key, 0)
 
             new_terminal = terminal_class(

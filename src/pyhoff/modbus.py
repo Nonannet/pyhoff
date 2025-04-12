@@ -87,7 +87,7 @@ class SimpleModbusClient:
         self._socket: None | socket.socket = None
         self.debug = debug
 
-    def connect(self):
+    def connect(self) -> bool:
         for af, st, pr, _, sa in socket.getaddrinfo(self.host, self.port,
                                                     socket.AF_UNSPEC,
                                                     socket.SOCK_STREAM):
@@ -110,7 +110,7 @@ class SimpleModbusClient:
             self.last_error = 'connection failed'
             return False
 
-    def close(self):
+    def close(self) -> bytes:
         """
         Close connection
 
