@@ -45,8 +45,8 @@ class BusTerminal():
     @classmethod
     def select(cls, bus_coupler: 'BusCoupler', terminal_number: int = 0) -> 'BusTerminal':
         terminal_list = [bt for bt in bus_coupler.bus_terminals if isinstance(bt, cls)]
-        assert terminal_list, f'No instance of {cls.__name__} configured at this BusCoupler'
-        assert 0 <= terminal_number < len(terminal_list), f'Out of range, select in range: 0..{len(terminal_list) - 1}'
+        assert terminal_list, f"No instance of {cls.__name__} configured at this BusCoupler"
+        assert 0 <= terminal_number < len(terminal_list), f"Out of range, select in range: 0..{len(terminal_list) - 1}"
         return terminal_list[terminal_number]
 
 
@@ -283,7 +283,7 @@ class BusCoupler():
                 terminal_classes.append(element)
 
         for terminal_class in terminal_classes:
-            assert _is_bus_terminal(terminal_class), f'{terminal_class} is not a bus terminal'
+            assert _is_bus_terminal(terminal_class), f"{terminal_class} is not a bus terminal"
 
             def get_para(key: str) -> int:
                 return terminal_class.parameters.get(key, 0)

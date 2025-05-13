@@ -451,7 +451,7 @@ class SimpleModbusClient:
                 return bytes()
 
         if self.debug:
-            print(f'<- Received: {' '.join(hex(b) for b in buffer)}')
+            print(f"<- Received: {' '.join(hex(b) for b in buffer)}")
 
         return buffer
 
@@ -471,7 +471,7 @@ class SimpleModbusClient:
                 try:
                     self._socket.sendall(data)
                     if self.debug:
-                        print(f'-> Send:     {' '.join(hex(b) for b in data)}')
+                        print(f"-> Send:     {' '.join(hex(b) for b in data)}")
                     return len(data)
                 except socket.error:
                     self.last_error = 'sending data failed'
@@ -532,7 +532,7 @@ class SimpleModbusClient:
             return self.close()
 
         if data[0] > 0x80:
-            self.last_error = f'return error: {_modbus_exceptions.get(data[1], '')} ({data[1]})'
+            self.last_error = f"return error: {_modbus_exceptions.get(data[1], '')} ({data[1]})"
             if self.debug:
                 print(self.last_error)
             return bytes()

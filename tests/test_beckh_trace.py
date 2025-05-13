@@ -14,7 +14,7 @@ def test_against_old_traces():
 
     # dummy modbus send function
     def debug_send_dummy(data: bytes) -> int:
-        print(f'-> Send:     {' '.join(hex(b) for b in data)}')
+        print(f"-> Send:     {' '.join(hex(b) for b in data)}")
         for b in data:
             debug_data.append(f"{b:02X}")
         return len(data)
