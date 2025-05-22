@@ -330,7 +330,7 @@ class SimpleModbusClient:
             address: The register address to read from.
 
         Returns:
-            The value of the coil.
+            The value of the coil or None if error
         """
         value = self.read_coils(address)
         if value:
