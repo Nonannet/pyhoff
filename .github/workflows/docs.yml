@@ -21,10 +21,10 @@ jobs:
         run: pip install sphinx sphinx_rtd_theme sphinx-autodoc-typehints myst-parser
       - name: Build Docs
         run: |
-          python .\docs\source\generate_class_list.py
+          python ./docs/source/generate_class_list.py
           cd docs
-          sphinx-apidoc -o .\source\ ..\src\ -M --no-toc
-          rm .\source\*.rst
+          sphinx-apidoc -o ./source/ ../src/ -M --no-toc
+          rm ./source/*.rst
           make html
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
