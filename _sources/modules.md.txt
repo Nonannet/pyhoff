@@ -1,0 +1,444 @@
+# Classes
+
+## Bus coupler
+
+These classes are bus couplers and are used to connect the IO bus terminals to a Ethernet interface.
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.BK9000
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :inherited-members:
+   :exclude-members: select
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.BK9050
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :inherited-members:
+   :exclude-members: select
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.BK9100
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :inherited-members:
+   :exclude-members: select
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.WAGO_750_352
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :inherited-members:
+   :exclude-members: select
+```
+
+## Beckhoff bus terminals
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL1104
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :inherited-members:
+   :exclude-members: select
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL1408
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :inherited-members:
+   :exclude-members: select
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL1512
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :inherited-members:
+   :exclude-members: select
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL2404
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :inherited-members:
+   :exclude-members: select
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL2408
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :inherited-members:
+   :exclude-members: select
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL2424
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :inherited-members:
+   :exclude-members: select
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL2634
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :inherited-members:
+   :exclude-members: select
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL3042
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :inherited-members:
+   :exclude-members: select
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL3054
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :inherited-members:
+   :exclude-members: select
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL3202
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :inherited-members:
+   :exclude-members: select
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL3214
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :inherited-members:
+   :exclude-members: select
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL4002
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :inherited-members:
+   :exclude-members: select
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL4004
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :inherited-members:
+   :exclude-members: select
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL4132
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :inherited-members:
+   :exclude-members: select
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL9010
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :inherited-members:
+   :exclude-members: select
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL9070
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :inherited-members:
+   :exclude-members: select
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL9080
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :inherited-members:
+   :exclude-members: select
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL9100
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :inherited-members:
+   :exclude-members: select
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL9150
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :inherited-members:
+   :exclude-members: select
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL9180
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :inherited-members:
+   :exclude-members: select
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL9184
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :inherited-members:
+   :exclude-members: select
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL9185
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :inherited-members:
+   :exclude-members: select
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL9186
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :inherited-members:
+   :exclude-members: select
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL9187
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :inherited-members:
+   :exclude-members: select
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL9188
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :inherited-members:
+   :exclude-members: select
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL9189
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :inherited-members:
+   :exclude-members: select
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL9190
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :inherited-members:
+   :exclude-members: select
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL9195
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :inherited-members:
+   :exclude-members: select
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL9200
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :inherited-members:
+   :exclude-members: select
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL9250
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :inherited-members:
+   :exclude-members: select
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL9290
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :inherited-members:
+   :exclude-members: select
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL9380
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :inherited-members:
+   :exclude-members: select
+```
+
+## WAGO bus terminals
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.WAGO_750_1405
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :inherited-members:
+   :exclude-members: select
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.WAGO_750_352
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :inherited-members:
+   :exclude-members: select
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.WAGO_750_530
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :inherited-members:
+   :exclude-members: select
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.WAGO_750_600
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :inherited-members:
+   :exclude-members: select
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.WAGO_750_602
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :inherited-members:
+   :exclude-members: select
+```
+
+## Base classes
+
+These classes are base classes for devices and are typically not used directly.
+
+```{eval-rst}
+.. autoclass:: pyhoff.AnalogInputTerminal
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :inherited-members:
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.AnalogOutputTerminal
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :inherited-members:
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.BusCoupler
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :inherited-members:
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.BusTerminal
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :inherited-members:
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.DigitalInputTerminal
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :inherited-members:
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.DigitalOutputTerminal
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :inherited-members:
+```
+
+## Modbus
+
+This modbus implementation is used internally.
+
+```{eval-rst}
+.. autoclass:: pyhoff.modbus.SimpleModbusClient
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :inherited-members:
+   :exclude-members: select
+```
+
