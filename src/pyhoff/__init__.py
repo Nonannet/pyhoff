@@ -1,8 +1,10 @@
 from .modbus import SimpleModbusClient
-from typing import Type, Iterable
+from typing import Iterable, TypeVar
+
+_BT = TypeVar('_BT', bound='BusTerminal')
 
 
-def _is_bus_terminal(bt_type: Type['BusTerminal']) -> bool:
+def _is_bus_terminal(bt_type: type['BusTerminal']) -> bool:
     if BusTerminal.__name__ == bt_type.__name__:
         return True
 
@@ -43,7 +45,20 @@ class BusTerminal():
         self._mixed_mapping = mixed_mapping
 
     @classmethod
-    def select(cls, bus_coupler: 'BusCoupler', terminal_number: int = 0) -> 'BusTerminal':
+    def select(cls: type[_BT], bus_coupler: 'BusCoupler', terminal_number: int = 0) -> _BT:
+        """
+        Returns the n-th bus terminal instance of the parent class
+        specified by terminal_number.
+
+        Args:
+            bus_coupler: The bus coupler to which the terminal is connected.
+            terminal_number: The index of the bus terminal to return. Counted for
+                all bus terminals of the same type, not all bus terminals. Started for the
+                first terminal with 0
+
+        Returns:
+            The selected bus terminal instance.
+        """
         terminal_list = [bt for bt in bus_coupler.bus_terminals if isinstance(bt, cls)]
         assert terminal_list, f"No instance of {cls.__name__} configured at this BusCoupler"
         assert 0 <= terminal_number < len(terminal_list), f"Out of range, select in range: 0..{len(terminal_list) - 1}"
@@ -225,7 +240,7 @@ class BusCoupler():
         modbus: The underlying modbus client used for the connection.
     """
 
-    def __init__(self, host: str, port: int = 502, bus_terminals: Iterable[Type[BusTerminal]] = [],
+    def __init__(self, host: str, port: int = 502, bus_terminals: Iterable[type[BusTerminal]] = [],
                  timeout: float = 5, watchdog: float = 0, debug: bool = False):
         """
         Instantiate a new bus coupler base class.
@@ -263,7 +278,7 @@ class BusCoupler():
     def _init_hardware(self, watchdog: float) -> None:
         pass
 
-    def add_bus_terminals(self, *new_bus_terminals: Type[BusTerminal] | Iterable[Type[BusTerminal]]) -> list[BusTerminal]:
+    def add_bus_terminals(self, *new_bus_terminals: type[BusTerminal] | Iterable[type[BusTerminal]]) -> list[BusTerminal]:
         """
         Add bus terminals to the bus coupler.
 
@@ -274,7 +289,7 @@ class BusCoupler():
             The corresponding list of bus terminal objects.
         """
 
-        terminal_classes: list[Type[BusTerminal]] = []
+        terminal_classes: list[type[BusTerminal]] = []
         for element in new_bus_terminals:
             if isinstance(element, Iterable):
                 for bt in element:
@@ -315,6 +330,28 @@ class BusCoupler():
             self.bus_terminals.append(new_terminal)
 
         return self.bus_terminals
+
+    def select(self, bus_terminal_type: type[_BT], terminal_number: int = 0) -> _BT:
+        """
+        Returns the n-th bus terminal instance of the given bus terminal type and
+        terminal index.
+
+        Args:
+            bus_terminals_type: The bus terminal class to select from.
+            terminal_number: The index of the bus terminal to return. Counted for
+                all bus terminals of the same type, not all bus terminals. Started for the
+                first terminal with 0
+
+        Returns:
+            The selected bus terminal instance.
+
+        Example:
+            >>> from pyhoff.devices import *
+            >>> bk = BK9050("172.16.17.1", bus_terminals=[KL2404, KL2424])
+            >>> # Select the first KL2425 terminal:
+            >>> kl2404 = bk.select(KL2424, 0)
+        """
+        return bus_terminal_type.select(self, terminal_number)
 
     def get_error(self) -> str:
         """
