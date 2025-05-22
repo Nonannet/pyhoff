@@ -1,4 +1,4 @@
-# pyhoff
+# Pyhoff
 
 ## Description
 The pyhoff package allows you to read and write the most common
@@ -43,15 +43,15 @@ bk.add_bus_terminals(KL2404, KL2424, KL9100, KL1104, KL3202,
                      KL4004, KL9010)
 
 # Set 1. output of the first KL2404-type bus terminal to hi
-KL2404.select(bk, 0).write_coil(1, True)
+bk.select(KL2404, 0).write_coil(1, True)
 
 # read temperature from the 2. channel of the 2. KL3202-type
 # bus terminal
-t = KL3202.select(bk, 1).read_temperature(2)
+t = bk.select(KL3202, 1).read_temperature(2)
 print(f"t = {t:.1f} °C")
 
 # Set 1. output of the 1. KL4002-type bus terminal to 4.2 V
-KL4002.select(bk, 0).set_voltage(1, 4.2)
+bk.select(KL4002, 0).set_voltage(1, 4.2)
 
 ```
 
