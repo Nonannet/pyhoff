@@ -19,9 +19,12 @@ jobs:
           python-version: "3.x"
       - name: Install dependencies
         run: pip install sphinx sphinx_rtd_theme sphinx-autodoc-typehints myst-parser
+      - name: Generate Class List
+        run: |
+          pip install .
+          python ./docs/source/generate_class_list.py
       - name: Build Docs
         run: |
-          python ./docs/source/generate_class_list.py
           cd docs
           sphinx-apidoc -o ./source/ ../src/ -M --no-toc
           rm ./source/*.rst
