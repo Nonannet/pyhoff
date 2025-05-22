@@ -1,21 +1,22 @@
 [project]
 name = "pyhoff"
-version = "1.1.0"
+version = "1.1.1"
 authors = [
   { name="Nicolas Kruse", email="nicolas.kruse@nonan.net" },
 ]
 description = "The pyhoff package allows easy accessing of Beckhoff and Wago terminals with python over ModBus TCP"
 readme = "README.md"
-requires-python = ">=3.9"
+requires-python = ">=3.10"
+license = "MIT"
 classifiers = [
     "Programming Language :: Python :: 3",
-    "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
 ]
 
 [project.urls]
 Homepage = "https://github.com/Nonannet/pyhoff"
 Issues = "https://github.com/Nonannet/pyhoff/issues"
+documentation = "https://nonannet.github.io/pyhoff/"
 
 [build-system]
 requires = ["setuptools>=61.0", "wheel"]
