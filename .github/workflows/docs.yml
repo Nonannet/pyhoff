@@ -29,6 +29,7 @@ jobs:
           sphinx-apidoc -o ./source/ ../src/ -M --no-toc
           rm ./source/*.rst
           make html
+          touch ./build/html/.nojekyll
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
