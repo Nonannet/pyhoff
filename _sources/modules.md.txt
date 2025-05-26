@@ -1,4 +1,4 @@
-# Classes
+# Classes and Modules
 
 ## Bus coupler
 
@@ -7,327 +7,1303 @@ These classes are bus couplers and are used to connect the IO bus terminals to a
 ```{eval-rst}
 .. autoclass:: pyhoff.devices.BK9000
    :members:
-   :undoc-members:
    :show-inheritance:
-   :inherited-members:
-   :exclude-members: select
+   :inherited-members: object
 ```
 
 ```{eval-rst}
 .. autoclass:: pyhoff.devices.BK9050
    :members:
-   :undoc-members:
    :show-inheritance:
-   :inherited-members:
-   :exclude-members: select
+   :inherited-members: object
 ```
 
 ```{eval-rst}
 .. autoclass:: pyhoff.devices.BK9100
    :members:
-   :undoc-members:
    :show-inheritance:
-   :inherited-members:
-   :exclude-members: select
+   :inherited-members: object
 ```
 
 ```{eval-rst}
 .. autoclass:: pyhoff.devices.WAGO_750_352
    :members:
-   :undoc-members:
    :show-inheritance:
-   :inherited-members:
-   :exclude-members: select
+   :inherited-members: object
 ```
 
 ## Beckhoff bus terminals
 
 ```{eval-rst}
+.. autoclass:: pyhoff.devices.KL1002
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL1012
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL1032
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL1052
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
 .. autoclass:: pyhoff.devices.KL1104
    :members:
-   :undoc-members:
    :show-inheritance:
-   :inherited-members:
-   :exclude-members: select
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL1114
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL1124
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL1154
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL1164
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL1184
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL1194
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL1212
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL1232
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL1302
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL1304
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL1312
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL1314
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL1352
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL1362
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL1382
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL1402
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL1404
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
 ```
 
 ```{eval-rst}
 .. autoclass:: pyhoff.devices.KL1408
    :members:
-   :undoc-members:
    :show-inheritance:
-   :inherited-members:
-   :exclude-members: select
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL1412
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL1414
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL1418
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL1434
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL1488
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL1498
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL1501
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
 ```
 
 ```{eval-rst}
 .. autoclass:: pyhoff.devices.KL1512
    :members:
-   :undoc-members:
    :show-inheritance:
-   :inherited-members:
-   :exclude-members: select
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL1702
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL1704
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL1712
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL1722
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL1804
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL1808
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL1809
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL1814
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL1819
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL1859
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL1862
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL1872
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL1889
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL2012
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL2022
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL2032
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL2114
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL2124
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL2134
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL2184
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL2212
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL2284
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
 ```
 
 ```{eval-rst}
 .. autoclass:: pyhoff.devices.KL2404
    :members:
-   :undoc-members:
    :show-inheritance:
-   :inherited-members:
-   :exclude-members: select
+   :inherited-members: object
+   :exclude-members: select, parameters
 ```
 
 ```{eval-rst}
 .. autoclass:: pyhoff.devices.KL2408
    :members:
-   :undoc-members:
    :show-inheritance:
-   :inherited-members:
-   :exclude-members: select
+   :inherited-members: object
+   :exclude-members: select, parameters
 ```
 
 ```{eval-rst}
 .. autoclass:: pyhoff.devices.KL2424
    :members:
-   :undoc-members:
    :show-inheritance:
-   :inherited-members:
-   :exclude-members: select
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL2442
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL2488
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL2502
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL2512
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL2532
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL2535
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL2541
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL2542
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL2545
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL2552
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL2602
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL2612
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL2622
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL2631
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
 ```
 
 ```{eval-rst}
 .. autoclass:: pyhoff.devices.KL2634
    :members:
-   :undoc-members:
    :show-inheritance:
-   :inherited-members:
-   :exclude-members: select
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL2641
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL2652
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL2701
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL2712
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL2722
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL2732
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL2751
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL2761
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL2784
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL2791
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL2794
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL2798
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL2808
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL2809
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL2828
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL2872
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL2889
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL3001
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL3002
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL3011
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL3012
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL3021
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL3022
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL3041
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
 ```
 
 ```{eval-rst}
 .. autoclass:: pyhoff.devices.KL3042
    :members:
-   :undoc-members:
    :show-inheritance:
-   :inherited-members:
-   :exclude-members: select
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL3044
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL3051
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL3052
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
 ```
 
 ```{eval-rst}
 .. autoclass:: pyhoff.devices.KL3054
    :members:
-   :undoc-members:
    :show-inheritance:
-   :inherited-members:
-   :exclude-members: select
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL3061
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL3062
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL3064
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL3102
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL3112
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL3122
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL3132
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL3142
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL3152
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL3162
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL3172
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL3182
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL3201
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
 ```
 
 ```{eval-rst}
 .. autoclass:: pyhoff.devices.KL3202
    :members:
-   :undoc-members:
    :show-inheritance:
-   :inherited-members:
-   :exclude-members: select
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL3204
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
 ```
 
 ```{eval-rst}
 .. autoclass:: pyhoff.devices.KL3214
    :members:
-   :undoc-members:
    :show-inheritance:
-   :inherited-members:
-   :exclude-members: select
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL3222
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL3228
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL3311
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL3312
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL3314
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL3351
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL3356
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL3361
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL3362
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL3403
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL3404
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL3408
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL3444
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL3448
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL3454
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL3458
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL3464
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL3468
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL4001
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
 ```
 
 ```{eval-rst}
 .. autoclass:: pyhoff.devices.KL4002
    :members:
-   :undoc-members:
    :show-inheritance:
-   :inherited-members:
-   :exclude-members: select
+   :inherited-members: object
+   :exclude-members: select, parameters
 ```
 
 ```{eval-rst}
 .. autoclass:: pyhoff.devices.KL4004
    :members:
-   :undoc-members:
    :show-inheritance:
-   :inherited-members:
-   :exclude-members: select
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL4011
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL4012
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL4021
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL4022
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL4031
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL4032
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL4034
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL4112
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
 ```
 
 ```{eval-rst}
 .. autoclass:: pyhoff.devices.KL4132
    :members:
-   :undoc-members:
    :show-inheritance:
-   :inherited-members:
-   :exclude-members: select
+   :inherited-members: object
+   :exclude-members: select, parameters
 ```
 
 ```{eval-rst}
-.. autoclass:: pyhoff.devices.KL9010
+.. autoclass:: pyhoff.devices.KL4404
    :members:
-   :undoc-members:
    :show-inheritance:
-   :inherited-members:
-   :exclude-members: select
+   :inherited-members: object
+   :exclude-members: select, parameters
 ```
 
 ```{eval-rst}
-.. autoclass:: pyhoff.devices.KL9070
+.. autoclass:: pyhoff.devices.KL4408
    :members:
-   :undoc-members:
    :show-inheritance:
-   :inherited-members:
-   :exclude-members: select
+   :inherited-members: object
+   :exclude-members: select, parameters
 ```
 
 ```{eval-rst}
-.. autoclass:: pyhoff.devices.KL9080
+.. autoclass:: pyhoff.devices.KL4414
    :members:
-   :undoc-members:
    :show-inheritance:
-   :inherited-members:
-   :exclude-members: select
+   :inherited-members: object
+   :exclude-members: select, parameters
 ```
 
 ```{eval-rst}
-.. autoclass:: pyhoff.devices.KL9100
+.. autoclass:: pyhoff.devices.KL4418
    :members:
-   :undoc-members:
    :show-inheritance:
-   :inherited-members:
-   :exclude-members: select
+   :inherited-members: object
+   :exclude-members: select, parameters
 ```
 
 ```{eval-rst}
-.. autoclass:: pyhoff.devices.KL9150
+.. autoclass:: pyhoff.devices.KL4424
    :members:
-   :undoc-members:
    :show-inheritance:
-   :inherited-members:
-   :exclude-members: select
+   :inherited-members: object
+   :exclude-members: select, parameters
 ```
 
 ```{eval-rst}
-.. autoclass:: pyhoff.devices.KL9180
+.. autoclass:: pyhoff.devices.KL4428
    :members:
-   :undoc-members:
    :show-inheritance:
-   :inherited-members:
-   :exclude-members: select
+   :inherited-members: object
+   :exclude-members: select, parameters
 ```
 
 ```{eval-rst}
-.. autoclass:: pyhoff.devices.KL9184
+.. autoclass:: pyhoff.devices.KL4434
    :members:
-   :undoc-members:
    :show-inheritance:
-   :inherited-members:
-   :exclude-members: select
+   :inherited-members: object
+   :exclude-members: select, parameters
 ```
 
 ```{eval-rst}
-.. autoclass:: pyhoff.devices.KL9185
+.. autoclass:: pyhoff.devices.KL4438
    :members:
-   :undoc-members:
    :show-inheritance:
-   :inherited-members:
-   :exclude-members: select
+   :inherited-members: object
+   :exclude-members: select, parameters
 ```
 
 ```{eval-rst}
-.. autoclass:: pyhoff.devices.KL9186
+.. autoclass:: pyhoff.devices.KL4494
    :members:
-   :undoc-members:
    :show-inheritance:
-   :inherited-members:
-   :exclude-members: select
+   :inherited-members: object
+   :exclude-members: select, parameters
 ```
 
 ```{eval-rst}
-.. autoclass:: pyhoff.devices.KL9187
+.. autoclass:: pyhoff.devices.KL5051
    :members:
-   :undoc-members:
    :show-inheritance:
-   :inherited-members:
-   :exclude-members: select
+   :inherited-members: object
+   :exclude-members: select, parameters
 ```
 
 ```{eval-rst}
-.. autoclass:: pyhoff.devices.KL9188
+.. autoclass:: pyhoff.devices.KL5101
    :members:
-   :undoc-members:
    :show-inheritance:
-   :inherited-members:
-   :exclude-members: select
+   :inherited-members: object
+   :exclude-members: select, parameters
 ```
 
 ```{eval-rst}
-.. autoclass:: pyhoff.devices.KL9189
+.. autoclass:: pyhoff.devices.KL5111
    :members:
-   :undoc-members:
    :show-inheritance:
-   :inherited-members:
-   :exclude-members: select
+   :inherited-members: object
+   :exclude-members: select, parameters
 ```
 
 ```{eval-rst}
-.. autoclass:: pyhoff.devices.KL9190
+.. autoclass:: pyhoff.devices.KL5121
    :members:
-   :undoc-members:
    :show-inheritance:
-   :inherited-members:
-   :exclude-members: select
-```
-
-```{eval-rst}
-.. autoclass:: pyhoff.devices.KL9195
-   :members:
-   :undoc-members:
-   :show-inheritance:
-   :inherited-members:
-   :exclude-members: select
-```
-
-```{eval-rst}
-.. autoclass:: pyhoff.devices.KL9200
-   :members:
-   :undoc-members:
-   :show-inheritance:
-   :inherited-members:
-   :exclude-members: select
-```
-
-```{eval-rst}
-.. autoclass:: pyhoff.devices.KL9250
-   :members:
-   :undoc-members:
-   :show-inheritance:
-   :inherited-members:
-   :exclude-members: select
-```
-
-```{eval-rst}
-.. autoclass:: pyhoff.devices.KL9290
-   :members:
-   :undoc-members:
-   :show-inheritance:
-   :inherited-members:
-   :exclude-members: select
-```
-
-```{eval-rst}
-.. autoclass:: pyhoff.devices.KL9380
-   :members:
-   :undoc-members:
-   :show-inheritance:
-   :inherited-members:
-   :exclude-members: select
+   :inherited-members: object
+   :exclude-members: select, parameters
 ```
 
 ## WAGO bus terminals
@@ -335,46 +1311,83 @@ These classes are bus couplers and are used to connect the IO bus terminals to a
 ```{eval-rst}
 .. autoclass:: pyhoff.devices.WAGO_750_1405
    :members:
-   :undoc-members:
    :show-inheritance:
-   :inherited-members:
-   :exclude-members: select
-```
-
-```{eval-rst}
-.. autoclass:: pyhoff.devices.WAGO_750_352
-   :members:
-   :undoc-members:
-   :show-inheritance:
-   :inherited-members:
-   :exclude-members: select
+   :inherited-members: object
+   :exclude-members: select, parameters
 ```
 
 ```{eval-rst}
 .. autoclass:: pyhoff.devices.WAGO_750_530
    :members:
-   :undoc-members:
    :show-inheritance:
-   :inherited-members:
-   :exclude-members: select
+   :inherited-members: object
+   :exclude-members: select, parameters
 ```
 
 ```{eval-rst}
 .. autoclass:: pyhoff.devices.WAGO_750_600
    :members:
-   :undoc-members:
    :show-inheritance:
-   :inherited-members:
-   :exclude-members: select
+   :inherited-members: object
+   :exclude-members: select, parameters
 ```
 
 ```{eval-rst}
 .. autoclass:: pyhoff.devices.WAGO_750_602
    :members:
-   :undoc-members:
    :show-inheritance:
-   :inherited-members:
-   :exclude-members: select
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+## Generic bus terminals
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.DigitalInputTerminal16Bit
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.DigitalInputTerminal4Bit
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.DigitalInputTerminal8Bit
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.DigitalOutputTerminal16Bit
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.DigitalOutputTerminal4Bit
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
+```
+
+```{eval-rst}
+.. autoclass:: pyhoff.devices.DigitalOutputTerminal8Bit
+   :members:
+   :show-inheritance:
+   :inherited-members: object
+   :exclude-members: select, parameters
 ```
 
 ## Base classes
@@ -384,49 +1397,43 @@ These classes are base classes for devices and are typically not used directly.
 ```{eval-rst}
 .. autoclass:: pyhoff.AnalogInputTerminal
    :members:
-   :undoc-members:
    :show-inheritance:
-   :inherited-members:
+   :inherited-members: object
 ```
 
 ```{eval-rst}
 .. autoclass:: pyhoff.AnalogOutputTerminal
    :members:
-   :undoc-members:
    :show-inheritance:
-   :inherited-members:
+   :inherited-members: object
 ```
 
 ```{eval-rst}
 .. autoclass:: pyhoff.BusCoupler
    :members:
-   :undoc-members:
    :show-inheritance:
-   :inherited-members:
+   :inherited-members: object
 ```
 
 ```{eval-rst}
 .. autoclass:: pyhoff.BusTerminal
    :members:
-   :undoc-members:
    :show-inheritance:
-   :inherited-members:
+   :inherited-members: object
 ```
 
 ```{eval-rst}
 .. autoclass:: pyhoff.DigitalInputTerminal
    :members:
-   :undoc-members:
    :show-inheritance:
-   :inherited-members:
+   :inherited-members: object
 ```
 
 ```{eval-rst}
 .. autoclass:: pyhoff.DigitalOutputTerminal
    :members:
-   :undoc-members:
    :show-inheritance:
-   :inherited-members:
+   :inherited-members: object
 ```
 
 ## Modbus
@@ -436,9 +1443,8 @@ This modbus implementation is used internally.
 ```{eval-rst}
 .. autoclass:: pyhoff.modbus.SimpleModbusClient
    :members:
-   :undoc-members:
    :show-inheritance:
-   :inherited-members:
-   :exclude-members: select
+   :inherited-members: object
+   :exclude-members: select, parameters
 ```
 
