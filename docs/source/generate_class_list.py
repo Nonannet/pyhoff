@@ -27,7 +27,6 @@ def write_classes(f: TextIOWrapper, patterns: list[str], module_name: str, title
             f.write('```{eval-rst}\n')
             f.write(f'.. autoclass:: {module_name}.{cls}\n')
             f.write('   :members:\n')
-            #f.write('   :undoc-members:\n')
             f.write('   :show-inheritance:\n')
             f.write('   :inherited-members: object\n')
             if title not in ['Base classes', 'Bus coupler']:
