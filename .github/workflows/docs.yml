@@ -25,6 +25,7 @@ jobs:
           python ./docs/source/generate_class_list.py
       - name: Build Docs
         run: |
+          cp LICENSE docs/source/
           cd docs
           sphinx-apidoc -o ./source/ ../src/ -M --no-toc
           rm ./source/*.rst
