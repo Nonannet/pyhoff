@@ -224,7 +224,7 @@ class KL3054(AnalogInputTerminal):
             channel: The channel number to read from.
 
         Returns:
-            The current value.
+            The current value in mA.
         """
         return self.read_normalized(channel) * 16.0 + 4.0
 
@@ -244,7 +244,7 @@ class KL3042(AnalogInputTerminal):
             channel: The channel number to read from.
 
         Returns:
-            The current value.
+            The current value in mA.
         """
         return self.read_normalized(channel) * 20.0
 
@@ -311,7 +311,7 @@ class KL4002(AnalogOutputTerminal):
 
         Args:
             channel: The channel number to set.
-            value: The voltage value to set.
+            value: The voltage value to set in V.
 
         Returns:
             True if the write operation succeeded.
@@ -348,7 +348,7 @@ class KL4132(AnalogOutputTerminal):
 
         Args:
             channel: The channel number to set.
-            value: The voltage value to set.
+            value: The voltage value to set in V.
 
         Returns:
             True if the write operation succeeded.
@@ -369,7 +369,7 @@ class KL4004(AnalogOutputTerminal):
 
         Args:
             channel: The channel number to set.
-            value: The voltage value to set.
+            value: The voltage value to set in V.
 
         Returns:
             True if the write operation succeeded.
