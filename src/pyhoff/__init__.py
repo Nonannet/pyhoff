@@ -225,15 +225,6 @@ class BusCoupler():
     """
     Base class for ModBus TCP bus coupler
 
-    Args:
-        host: ip or hostname of the bus coupler
-        port: port of the modbus host
-        debug: outputs modbus debug information
-        timeout: timeout for waiting for the device response
-        watchdog: time in seconds after the device sets all outputs to
-            default state. A value of 0 deactivates the watchdog.
-        debug: If True, debug information is printed.
-
     Attributes:
         bus_terminals: A list of bus terminal classes according to the
             connected terminals.
@@ -248,6 +239,8 @@ class BusCoupler():
         Args:
             host: ip or hostname of the bus coupler
             port: port of the modbus host
+            bus_terminals: list of bus terminal classes for the
+                connected terminals
             debug: outputs modbus debug information
             timeout: timeout for waiting for the device response
             watchdog: time in seconds after the device sets all outputs to
