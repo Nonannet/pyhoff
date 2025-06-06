@@ -48,20 +48,13 @@ class SimpleModbusClient:
     """
     A simple Modbus TCP client
 
-    Args:
-        host: hostname or IP address
-        port: server port
-        unit_id: ModBus id
-        timeout: socket timeout in seconds
-        debug: if True prints out transmitted and received bytes in hex
-
     Attributes:
-        host: hostname or IP address
-        port: server port
-        unit_id: ModBus id
-        timeout: socket timeout in seconds
-        last_error: contains last error message or empty string if no error occurred
-        debug: if True prints out transmitted and received bytes in hex
+        host (str): hostname or IP address
+        port (int): server port
+        unit_id (int): ModBus id
+        timeout (float): socket timeout in seconds
+        last_error (str): contains last error message or empty string if no error occurred
+        debug (bool): if True prints out transmitted and received bytes in hex
 
     """
 

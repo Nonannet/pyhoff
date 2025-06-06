@@ -225,19 +225,10 @@ class BusCoupler():
     """
     Base class for ModBus TCP bus coupler
 
-    Args:
-        host: ip or hostname of the bus coupler
-        port: port of the modbus host
-        debug: outputs modbus debug information
-        timeout: timeout for waiting for the device response
-        watchdog: time in seconds after the device sets all outputs to
-            default state. A value of 0 deactivates the watchdog.
-        debug: If True, debug information is printed.
-
     Attributes:
-        bus_terminals: A list of bus terminal classes according to the
+        bus_terminals (list[BusTerminal]): A list of bus terminal classes according to the
             connected terminals.
-        modbus: The underlying modbus client used for the connection.
+        modbus (SimpleModbusClient): The underlying modbus client used for the connection.
     """
 
     def __init__(self, host: str, port: int = 502, bus_terminals: Iterable[type[BusTerminal]] = [],
