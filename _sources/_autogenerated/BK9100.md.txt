@@ -1,0 +1,8 @@
+# pyhoff.devices.BK9100
+```{eval-rst}
+.. autoclass:: pyhoff.devices.BK9100
+   :members:
+   :show-inheritance:
+   :inherited-members:
+```
+

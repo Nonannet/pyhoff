@@ -1,0 +1,9 @@
+# pyhoff.modbus.SimpleModbusClient
+```{eval-rst}
+.. autoclass:: pyhoff.modbus.SimpleModbusClient
+   :members:
+   :show-inheritance:
+   :inherited-members:
+   :exclude-members: select, parameters
+```
+

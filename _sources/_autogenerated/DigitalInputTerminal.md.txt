@@ -1,0 +1,8 @@
+# pyhoff.DigitalInputTerminal
+```{eval-rst}
+.. autoclass:: pyhoff.DigitalInputTerminal
+   :members:
+   :show-inheritance:
+   :inherited-members:
+```
+

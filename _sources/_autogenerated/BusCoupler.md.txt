@@ -1,0 +1,8 @@
+# pyhoff.BusCoupler
+```{eval-rst}
+.. autoclass:: pyhoff.BusCoupler
+   :members:
+   :show-inheritance:
+   :inherited-members:
+```
+

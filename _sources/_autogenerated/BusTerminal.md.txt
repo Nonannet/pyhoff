@@ -1,0 +1,8 @@
+# pyhoff.BusTerminal
+```{eval-rst}
+.. autoclass:: pyhoff.BusTerminal
+   :members:
+   :show-inheritance:
+   :inherited-members:
+```
+

@@ -1,0 +1,132 @@
+# Classes and Modules
+
+These classes are bus couplers and are used to connect the IO bus terminals to a Ethernet interface.
+
+```{toctree}
+:maxdepth: 1
+:caption: Bus coupler:
+BK9000
+BK9050
+BK9100
+WAGO_750_352
+```
+
+```{toctree}
+:maxdepth: 1
+:caption: Beckhoff bus terminals:
+KL1002
+KL1012
+KL1032
+KL1052
+KL1104
+KL1114
+KL1124
+KL1154
+KL1164
+KL1184
+KL1194
+KL1212
+KL1232
+KL1302
+KL1304
+KL1312
+KL1314
+KL1352
+KL1362
+KL1382
+KL1402
+KL1404
+KL1408
+KL1412
+KL1414
+KL1418
+KL1434
+KL1488
+KL1498
+KL1501
+KL1512
+KL1702
+KL1704
+KL1712
+KL1722
+KL1804
+KL1808
+KL1809
+KL1814
+KL1819
+KL1859
+KL1862
+KL1872
+KL1889
+KL2012
+KL2022
+KL2032
+KL2114
+KL2124
+KL2134
+KL2184
+KL2212
+KL2284
+KL2404
+KL2408
+KL2424
+KL2442
+KL2488
+KL2634
+KL2808
+KL2809
+KL2828
+KL2872
+KL2889
+KL3042
+KL3054
+KL3202
+KL3214
+KL4002
+KL4004
+KL4132
+KL5121
+```
+
+```{toctree}
+:maxdepth: 1
+:caption: WAGO bus terminals:
+WAGO_750_1405
+WAGO_750_352
+WAGO_750_530
+WAGO_750_600
+WAGO_750_602
+```
+
+```{toctree}
+:maxdepth: 1
+:caption: Generic bus terminals:
+DigitalInputTerminal16Bit
+DigitalInputTerminal4Bit
+DigitalInputTerminal8Bit
+DigitalOutputTerminal16Bit
+DigitalOutputTerminal4Bit
+DigitalOutputTerminal8Bit
+```
+
+These classes are base classes for devices and are typically not used directly.
+
+```{toctree}
+:maxdepth: 1
+:caption: Base classes:
+AnalogInputTerminal
+AnalogOutputTerminal
+BusCoupler
+BusTerminal
+DigitalInputTerminal
+DigitalOutputTerminal
+```
+
+This modbus implementation is used internally.
+
+```{toctree}
+:maxdepth: 1
+:caption: Modbus:
+SimpleModbusClient
+```
+

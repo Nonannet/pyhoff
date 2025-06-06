@@ -1,0 +1,9 @@
+# pyhoff.devices.WAGO_750_530
+```{eval-rst}
+.. autoclass:: pyhoff.devices.WAGO_750_530
+   :members:
+   :show-inheritance:
+   :inherited-members:
+   :exclude-members: select, parameters
+```
+

@@ -1,0 +1,9 @@
+# pyhoff.devices.KL1889
+```{eval-rst}
+.. autoclass:: pyhoff.devices.KL1889
+   :members:
+   :show-inheritance:
+   :inherited-members:
+   :exclude-members: select, parameters
+```
+

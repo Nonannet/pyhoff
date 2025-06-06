@@ -1,0 +1,8 @@
+# pyhoff.AnalogInputTerminal
+```{eval-rst}
+.. autoclass:: pyhoff.AnalogInputTerminal
+   :members:
+   :show-inheritance:
+   :inherited-members:
+```
+

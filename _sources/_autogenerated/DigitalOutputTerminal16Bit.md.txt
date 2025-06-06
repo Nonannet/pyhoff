@@ -1,0 +1,9 @@
+# pyhoff.devices.DigitalOutputTerminal16Bit
+```{eval-rst}
+.. autoclass:: pyhoff.devices.DigitalOutputTerminal16Bit
+   :members:
+   :show-inheritance:
+   :inherited-members:
+   :exclude-members: select, parameters
+```
+
