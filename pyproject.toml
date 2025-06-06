@@ -29,6 +29,12 @@ where = ["src"]
 dev = [
     "pytest", "flake8", "mypy"
 ]
+doc_build = [
+  "sphinx",
+  "pydata_sphinx_theme",
+  "sphinx-autodoc-typehints",
+  "myst-parser"
+]
 
 [tool.mypy]
 files = ["src"]

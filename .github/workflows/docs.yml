@@ -17,15 +17,13 @@ jobs:
         uses: actions/setup-python@v3
         with:
           python-version: "3.x"
-      - name: Install dependencies
-        run: pip install sphinx sphinx_rtd_theme sphinx-autodoc-typehints myst-parser
+      - name: Install package and dependencies
+        run: pip install .[doc_build]
       - name: Generate Class List
-        run: |
-          pip install .
-          python ./docs/source/generate_class_list.py
+        run: python ./docs/source/generate_class_list.py
       - name: Build Docs
         run: |
-          cp LICENSE docs/source/
+          cp LICENSE docs/source/LICENSE.md
           cd docs
           sphinx-apidoc -o ./source/ ../src/ -M --no-toc
           rm ./source/*.rst
