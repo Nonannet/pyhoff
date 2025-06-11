@@ -33,6 +33,9 @@ def write_classes(f: TextIOWrapper, patterns: list[str], module_name: str, title
             f2.write('   :inherited-members:\n')
             if title not in ['Base classes', 'Bus coupler']:
                 f2.write('   :exclude-members: select, parameters\n')
+            if 'bus terminals' in title:
+                f2.write('   :class-doc-from: class\n')
+
             f2.write('```\n\n')
 
 
