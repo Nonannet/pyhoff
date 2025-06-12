@@ -1,6 +1,5 @@
 # Pyhoff
 
-## Description
 The pyhoff package allows you to read and write the most common
 Beckhoff and WAGO bus terminals ("Busklemmen") using the Ethernet bus
 coupler ("Busskoppler") BK9000, BK9050, BK9100, or WAGO 750_352
@@ -62,32 +61,24 @@ Please open an issue or submit a pull request on GitHub.
 ## Developer Guide
 To get started with developing the `pyhoff` package, follow these steps:
 
-1. **Clone the Repository**
-   First, clone the repository to your local machine using Git:
-
+1. First, clone the repository to your local machine using Git:
    ```bash
    git clone https://github.com/Nonannet/pyhoff.git
    cd pyhoff
    ```
 
-2. **Set Up a Virtual Environment**
-   It is recommended to use a virtual environment to manage dependencies. You can create one using `venv`:
-
+2. It is recommended to use a virtual environment:
    ```bash
-   python -m venv venv
-   source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+   python -m venv .venv
+   source .venv/bin/activate  # On Windows/Powershell use `.\venv\Scripts\Activate.ps1`
    ```
 
-3. **Install Dev Dependencies**
-   Install pyhoff from source plus the dependencies required for development using `pip`:
-
+3. Install pyhoff from source plus the development dependencies:
    ```bash
    pip install -e .[dev]
    ```
 
-4. **Run Tests**
-   Ensure that everything is set up correctly by running the tests:
-
+4. Ensure that everything is set up correctly by running the tests:
    ```bash
    pytest
    ```
