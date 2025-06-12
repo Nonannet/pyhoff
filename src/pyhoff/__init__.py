@@ -137,9 +137,10 @@ class AnalogInputTerminal(BusTerminal):
 
         Args:
             channel: The channel number (1 based index) to read from.
+            error_value: Value that is returned in case the modbus read command fails.
 
         Returns:
-            The read word value.
+            The read word value or provided error_value if read failed.
 
         Raises:
             Exception: If the word offset or count is out of range.
@@ -174,6 +175,7 @@ class AnalogOutputTerminal(BusTerminal):
 
         Args:
             channel: The channel number (1 based index) to read from.
+            error_value: Value that is returned in case the modbus read command fails.
 
         Returns:
             The read word value or provided error_value if read failed.
