@@ -1,15 +1,16 @@
-cff-version: 1.2.0
+cff-version: 1.1.0
+message: "If you use this software, please cite it as below."
 title: pyhoff
 abstract: The pyhoff package allows easy accessing of Beckhoff and Wago terminals with python over ModBus TCP
 authors:
   - family-names: Kruse
     given-names: Nicolas
     orcid: "https://orcid.org/0000-0001-6758-2269"
-version: 1.1.0
-#date-released: "2025-04-01"
+version: v1.2.0
+date-released: "2025-04-01"
 #identifiers:
 #  - description: This is the collection of archived snapshots of all versions of My Research Software
 #    type: doi
 #    value: "10.5281/"
-license: MIT License
+license: MIT
 repository-code: "https://github.com/Nonannet/pyhoff"
