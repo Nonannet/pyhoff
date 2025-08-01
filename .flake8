@@ -12,9 +12,10 @@ exclude =
     __pycache__,
     build,
     dist,
-    .conda
-    .venv
-    venv
+    .conda,
+    .venv,
+    venv,
+    docs/source/api
 
 # Enable specific plugins or options
 # Example: Enabling flake8-docstrings
