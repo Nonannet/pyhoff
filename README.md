@@ -54,6 +54,62 @@ bk.select(KL4002, 0).set_voltage(1, 4.2)
 
 ```
 
+## Adding new terminals
+The package comes with automatic generated code stubs for nearly all
+terminals. These stubs are not tested with hardware but for most
+digital IO terminals the code should be fully functional.
+Such a stub looks like this:
+
+```python
+# From ./src/pyhoff/devices.py:
+class KL2442(DigitalOutputTerminal):
+    """
+    KL2442: 2-channel digital output, 24 V DC, 2 x 4 A/1 x 8 A
+    (Automatic generated stub)
+    """
+    parameters = {'output_bit_width': 2, 'input_bit_width': 0}
+```
+
+For analog IO terminals the stubs are functional as well,
+but they provide only a generic `read_channel_word` and
+`read_normalized` function (for inputs) without scaling the
+values to voltages, currents or temperatures. For better usability
+they might be extended with functions. Based on the stub the
+extension could look like this:
+
+```python
+from pyhoff.devices import KL3054 as KL3054_stub
+
+class KL3054(KL3054_stub):
+    def read_current(self, channel: int) -> float:
+        return self.read_normalized(channel) * 16.0 + 4.0
+```
+
+Or for contributing to the pyhoff package, the existing stub
+code can be updated like this:
+
+```python
+# From ./src/pyhoff/devices.py:
+class KL3054(AnalogInputTerminal):
+    """
+    KL3054: 4x analog input 4...20 mA 12 Bit single-ended
+    """
+    # Input: 4 x 16 Bit Daten (optional 4x 8 Bit Control/Status)
+    parameters = {'input_word_width': 4}
+
+    def read_current(self, channel: int) -> float:
+        """
+        Read the current value from a specific channel.
+
+        Args:
+            channel: The channel number to read from.
+
+        Returns:
+            The current value in mA.
+        """
+        return self.read_normalized(channel) * 16.0 + 4.0
+```
+
 ## Contributing
 Other analog and digital IO terminals are easy to complement. Contributions are welcome!
 Please open an issue or submit a pull request on GitHub.
